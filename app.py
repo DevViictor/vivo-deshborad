@@ -82,8 +82,11 @@ if windows == "Tabela(controle)":
 elif windows == "Inicio":
     st.header("Vivo Deshborad")
     st.subheader("Deshborad voltado para análise de produtos")
-    st.text("Dados coletados dos consultores")
+   
     st.image(imagem)
 
 elif windows == "Tabela(pos)":
     pass
+
+elif windows == "Sobre":
+     st.text("Dados coletados dos consultores")
