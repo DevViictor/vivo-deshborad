@@ -110,8 +110,8 @@ if windows == "Controle":
     st.dataframe(contcolums)
 
 elif windows == "Inicio":
-    st.header("Vivo Deshborad")
-    st.subheader("Deshborad voltado para análise de produtos")
+    st.header("Vivo Dashborad")
+    st.subheader("Dashborad voltado para análise de produtos")
    
     st.image(imagem)
 
