@@ -47,7 +47,7 @@ WILLERT = WILLER["Produto"].isin(["CONTROLE"]).value_counts()
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Controle", "Pós" ,"Seguro","Gráficos","Sobre"])
 
 
-if windows == "Controle)":
+if windows == "Controle":
     st.text("ANA")
     st.dataframe(ANA)
     st.dataframe(ANAT)
