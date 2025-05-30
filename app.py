@@ -44,10 +44,10 @@ WILLERT = WILLER["Produto"].isin(["CONTROLE"]).value_counts()
 
 
 
-windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(controle)", "Tabela(pos)" ,"Gráficos","Sobre"])
+windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Controle", "Pós" ,"Seguro","Gráficos","Sobre"])
 
 
-if windows == "Tabela(controle)":
+if windows == "Controle)":
     st.text("ANA")
     st.dataframe(ANA)
     st.dataframe(ANAT)
@@ -85,7 +85,7 @@ elif windows == "Inicio":
    
     st.image(imagem)
 
-elif windows == "Tabela(pos)":
+elif windows == "Pós)":
     pass
 
 elif windows == "Sobre":
