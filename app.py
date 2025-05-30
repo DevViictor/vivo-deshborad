@@ -1,10 +1,13 @@
 import streamlit as st
 import pandas as pd
+from PIL import Image
 
 
 
 arquivo = "data.xlsx"
 arquivo_vendedores = "vendedores.xlsx"
+imagem = imagem = Image.open('imagem/vivop.png')
+
 
 
 
@@ -21,8 +24,6 @@ DEBORA = pd.read_excel(arquivo_vendedores,sheet_name= "DEBORA",engine="openpyxl"
 LENE = pd.read_excel(arquivo_vendedores,sheet_name="LENE",engine="openpyxl")
 
 WILLER = pd.read_excel(arquivo_vendedores,sheet_name= "WILLER",engine="openpyxl")
-
-
 
 
 sheetsT = pd.read_excel(arquivo,sheet_name= "Total",engine="openpyxl")
@@ -45,32 +46,44 @@ WILLERT = WILLER["Produto"].isin(["CONTROLE"]).value_counts()
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(controle)", "Tabela(pos)" ,"Gráficos","Sobre"])
 
-if windows == "Tabela":
+
+if windows == "Tabela(controle)":
     st.text("ANA")
     st.dataframe(ANA)
-    st.dataframe(ANAT - 1)
+    st.dataframe(ANAT)
+
     st.text("ANDERSON")
     st.dataframe(ANDERSON)
-    st.dataframe(ANDERSONT - 1)
+    st.dataframe(ANDERSONT)
+
     st.text("CAROL")
     st.dataframe(CAROL)
-    st.dataframe(CAROLT - 1)
+    st.dataframe(CAROLT)
+
     st.text("DAVIDG")
     st.dataframe(DAVIDG)
-    st.dataframe(DAVIDGT - 1)
+    st.dataframe(DAVIDGT)
+
     st.text("DEBORA")
     st.dataframe(DEBORA)
-    st.dataframe(DEBORAT - 1)
+    st.dataframe(DEBORAT)
+
     st.text("LENE")
     st.dataframe(LENE)
-    st.dataframe(LENET - 1)
+    st.dataframe(LENET)
+
     st.text("WILLER")
     st.dataframe(WILLER)
-    st.dataframe(WILLERT - 1)
+    st.dataframe(WILLERT)
+    
     st.text("Total")
     st.dataframe(contcolums)
 
 elif windows == "Inicio":
     st.header("Vivo Deshborad")
-    st.subheader("Deshborad voltados para análise de produtos")
+    st.subheader("Deshborad voltado para análise de produtos")
     st.text("Dados coletados dos consultores")
+    st.image(imagem,use_container_width=True)
+
+elif windows == "Tabela(pos)":
+    pass
