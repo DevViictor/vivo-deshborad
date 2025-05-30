@@ -43,7 +43,7 @@ WILLERT = WILLER["Produto"].isin(["CONTROLE"]).value_counts()
 
 
 
-windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela", "Gráficos"])
+windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(controle)", "Tabela(pos)" ,"Gráficos","Sobre"])
 
 if windows == "Tabela":
     st.text("ANA")
@@ -73,3 +73,4 @@ if windows == "Tabela":
 elif windows == "Inicio":
     st.header("Vivo Deshborad")
     st.subheader("Deshborad voltados para análise de produtos")
+    st.text("Dados coletados dos consultores")
