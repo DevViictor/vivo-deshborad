@@ -75,7 +75,7 @@ if windows == "Tabela(controle)":
     st.text("WILLER")
     st.dataframe(WILLER)
     st.dataframe(WILLERT)
-    
+
     st.text("Total")
     st.dataframe(contcolums)
 
@@ -83,7 +83,7 @@ elif windows == "Inicio":
     st.header("Vivo Deshborad")
     st.subheader("Deshborad voltado para análise de produtos")
     st.text("Dados coletados dos consultores")
-    st.image(imagem,use_container_width=True)
+    st.image(imagem)
 
 elif windows == "Tabela(pos)":
     pass
