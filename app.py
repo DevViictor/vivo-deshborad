@@ -30,7 +30,7 @@ sheetsT = pd.read_excel(arquivo,sheet_name= "Total",engine="openpyxl")
 
 
 
-contcolums = sheetsT["Produto"].isin(["CONTROLE"]).value_counts()
+contcolums = sheetsT["Total"].isin(["CONTROLE"]).value_counts()
 
 ANAT = ANA["Produto"].isin(["CONTROLE"]).value_counts()
 ANDERSONT = ANDERSON["Produto"].isin(["CONTROLE"]).value_counts()
