@@ -1,10 +1,10 @@
 
 import pandas as pd
 
-arquivo = "excel_file/data.xlsx"
-arquivo_vendedores = "excel_file/vendedores.xlsx"
-Pos = "excel_file/Pos.xlsx"
-arquivo2 = "excel_file/data2.xlsx"
+arquivo = "excel_file/controle_dados.xlsx"
+arquivo_vendedores = "excel_file/vendedores_controle.xlsx"
+Pos = "excel_file/vendedores_pós.xlsx"
+arquivo2 = "excel_file/pós_dados.xlsx"
 
 
 
