@@ -6,12 +6,14 @@ from readfile_controle_pos import ANA2, ANDERSON2 , CAROL2 ,DEBORA2 , DAVIDG2 , 
 from readfile_Total_controle_pos import totalc
 from readfile_Total_controle_pos import ANAT, ANDERSONT , CAROLT , DEBORAT , DAVIDGT , WILLERT , LENET
 from readfile_Total_controle_pos import ANAT2, ANDERSONT2 , CAROLT2 , DEBORAT2 , DAVIDGT2 , WILLERT2 , LENET2
-
+from readfile_grafico import df_melt
 
 imagem = imagem = Image.open('imagem/vivop.png')
 
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Controle", "Pós" ,"Seguro","Gráficos","Sobre"])
+
+
 
 
 if windows == "Controle":
@@ -49,8 +51,11 @@ if windows == "Controle":
 elif windows == "Inicio":
     st.header("Vivo Dashborad")
     st.subheader("Dashborad voltado para análise de produtos")
-   
     st.image(imagem)
+    st.subheader("Contribuição Controle")
+    st.bar_chart(df_melt.set_index('consultor'))
+   
+    
 
 elif windows == "Pós":
     st.text("ANA")

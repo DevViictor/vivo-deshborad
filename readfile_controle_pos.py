@@ -1,7 +1,6 @@
 
 import pandas as pd
 
-
 arquivo = "excel_file/data.xlsx"
 arquivo_vendedores = "excel_file/vendedores.xlsx"
 Pos = "excel_file/Pos.xlsx"
@@ -57,6 +56,7 @@ WILLER2 = pd.read_excel(Pos,sheet_name= "WILLER",engine="openpyxl")
 
 
 todo = pd.read_excel(arquivo)
+
 
 
 
