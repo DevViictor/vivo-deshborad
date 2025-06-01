@@ -23,3 +23,5 @@ DAVIDGT2 = DAVIDG2["Produto"].isin(["PÓS PAGO"]).value_counts()
 DEBORAT2 = DEBORA2["Produto"].isin(["PÓS PAGO"]).value_counts()
 LENET2 = LENE2["Produto"].isin(["PÓS PAGO"]).value_counts()
 WILLERT2 = WILLER2["Produto"].isin(["PÓS PAGO"]).value_counts()
+
+cont_pos = totalpos["Produto"].isin(["PÓS PAGO"]).value_counts()

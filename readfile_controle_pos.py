@@ -4,8 +4,7 @@ import pandas as pd
 arquivo = "excel_file/controle_dados.xlsx"
 arquivo_vendedores = "excel_file/vendedores_controle.xlsx"
 Pos = "excel_file/vendedores_pós.xlsx"
-arquivo2 = "excel_file/pós_dados.xlsx"
-
+pos_total ="excel_file/pós_dados.xlsx"
 
 
 ANA = pd.read_excel(arquivo_vendedores,sheet_name="ANA" ,engine="openpyxl")
@@ -28,7 +27,7 @@ LENE = pd.read_excel(arquivo_vendedores,sheet_name="LENE",engine="openpyxl")
 
 WILLER = pd.read_excel(arquivo_vendedores,sheet_name= "WILLER",engine="openpyxl")
 
-
+todo = pd.read_excel(arquivo)
 
 
 
@@ -53,9 +52,9 @@ LENE2 = pd.read_excel(Pos,sheet_name="LENE",engine="openpyxl")
 
 WILLER2 = pd.read_excel(Pos,sheet_name= "WILLER",engine="openpyxl")
 
+totalpos = pd.read_excel(pos_total)
 
 
-todo = pd.read_excel(arquivo)
 
 
 

@@ -18,3 +18,18 @@ df = pd.DataFrame ([{
 
 df_melt = df.melt(value_name = "valor" , var_name = "consultor")
 
+
+df2 = pd.DataFrame ([{
+
+'TOTAL' : totalpos["Produto"].isin(["PÓS PAGO"]).sum(),
+'ANA' : ANA2 ["Produto"].isin(["PÓS PAGO"]).sum(),
+'ANDERSON' : ANDERSON2["Produto"].isin(["PÓS PAGO"]).sum(),
+'CAROL' : CAROL2["Produto"].isin(["PÓS PAGO"]).sum(),
+'DAVIDG' : DAVIDG2["Produto"].isin(["PÓS PAGO"]).sum(),
+'DEBORA' : DEBORA2["Produto"].isin(["PÓS PAGO"]).sum(),
+'LENET' : LENE2["Produto"].isin(["PÓS PAGO"]).sum(),
+'WILLERT' : WILLER2["Produto"].isin(["PÓS PAGO"]).sum(),
+
+}])
+
+df_melt2 = df2.melt(value_name = "valor" , var_name = "consultor")
