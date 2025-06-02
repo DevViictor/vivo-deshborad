@@ -96,3 +96,6 @@ elif windows == "Tabela(Pós)":
 elif windows == "Sobre":
      st.text("Dados coletados dos consultores")
      st.text("Shopping Da Bahia")
+
+elif windows =="Tabela(Seguro)":
+    pass
