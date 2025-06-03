@@ -1,5 +1,5 @@
 import pandas as pd
-from readfile_Total_controle_pos import *
+from readfile_Total_controle_pos_seguro import *
 
 
 
@@ -33,3 +33,19 @@ df2 = pd.DataFrame ([{
 }])
 
 df_melt2 = df2.melt(value_name = "valor" , var_name = "consultor")
+
+
+df3 = pd.DataFrame ([{
+
+'TOTAL' : totalseguro["Serviço"].isin(["Seguro"]).sum(),
+'ANA' : ANA_SEGURO ["Serviço"].isin(["Seguro"]).sum(),
+'ANDERSON' : ANDERSON_SEGURO["Serviço"].isin(["Seguro"]).sum(),
+'CAROL' : CAROL_SEGURO["Serviço"].isin(["Seguro"]).sum(),
+'DAVIDG' : DAVIDG_SEGURO["Serviço"].isin(["Seguro"]).sum(),
+'DEBORA' : DEBORA_SEGURO["Serviço"].isin(["Seguro"]).sum(),
+'LENET' : LENE_SEGURO["Serviço"].isin(["Seguro"]).sum(),
+'WILLERT' : WILLER_SEGURO["Serviço"].isin(["Seguro"]).sum(),
+
+}])
+
+df_melt3 = df3.melt(value_name = "valor" , var_name = "consultor")

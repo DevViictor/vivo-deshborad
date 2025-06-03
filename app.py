@@ -3,20 +3,22 @@ import pandas as pd
 from PIL import Image
 from readfile_controle_pos import ANA, ANDERSON , CAROL ,DEBORA , DAVIDG , WILLER , LENE
 from readfile_controle_pos import ANA2, ANDERSON2 , CAROL2 ,DEBORA2 , DAVIDG2 , WILLER2 , LENE2
-from readfile_Total_controle_pos import totalc , cont_pos
-from readfile_Total_controle_pos import ANAT, ANDERSONT , CAROLT , DEBORAT , DAVIDGT , WILLERT , LENET
-from readfile_Total_controle_pos import ANAT2, ANDERSONT2 , CAROLT2 , DEBORAT2 , DAVIDGT2 , WILLERT2 , LENET2 
-from readfile_grafico import df_melt , df_melt2
+from readfile_Total_controle_pos_seguro import totalc , cont_pos, cont_seguro
+from readfile_Total_controle_pos_seguro import ANAT, ANDERSONT , CAROLT , DEBORAT , DAVIDGT , WILLERT , LENET
+from readfile_Total_controle_pos_seguro import ANAT2, ANDERSONT2 , CAROLT2 , DEBORAT2 , DAVIDGT2 , WILLERT2 , LENET2 
+from readfile_Total_controle_pos_seguro import ANA_SEGUROT,ANDERSON_SEGUROT,CAROL_SEGUROT,DAVIDG_SEGUROT,DEBORA_SEGUROT,LENE_SEGUROT,WILLER_SEGUROT
+from readfile_grafico import df_melt , df_melt2 , df_melt3
+from redfile_seguro import ANA_SEGURO,ANDERSON_SEGURO,CAROL_SEGURO,DAVIDG_SEGURO,DEBORA_SEGURO,LENE_SEGURO,WILLER_SEGURO,seguro_total
 
 imagem = imagem = Image.open('imagem/vivop.png')
 
 
-windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(Controle)", "Tabela(Pós)" ,"Seguro","Sobre"])
-box = st.sidebar.selectbox("Mês", ["Maio","Junho"])
+windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Sobre"])
+box_mês = st.sidebar.selectbox("Mês", ["Maio","Junho"])
 
 
 
-if windows == "Tabela(Controle)":
+if windows == "Tabela(Controle)" and box_mês == "Maio":
     st.header("Tabela Controle")
     st.text("ANA")
     st.dataframe(ANA)
@@ -49,7 +51,7 @@ if windows == "Tabela(Controle)":
     st.text("Total")
     st.dataframe(totalc)
 
-elif windows == "Inicio" and box == "Maio":
+elif windows == "Inicio" and box_mês == "Maio":
     st.header("Vivo Dashborad")
     st.subheader("Dashborad voltado para análise de produtos")
     st.image(imagem)
@@ -58,8 +60,11 @@ elif windows == "Inicio" and box == "Maio":
     st.bar_chart(df_melt.set_index('consultor'))
     st.subheader("Pós: ")
     st.bar_chart(df_melt2.set_index('consultor'))
+    st.subheader("Seguro: ")
+    st.bar_chart(df_melt3.set_index('consultor'))
+    
 
-elif windows == "Tabela(Pós)":
+elif windows == "Tabela(Pós)" and box_mês == "Maio":
     st.header("Tabela Pós")
     st.text("ANA")
     st.dataframe(ANA2)
@@ -92,7 +97,7 @@ elif windows == "Tabela(Pós)":
     st.text("Total")
     st.dataframe(cont_pos)
 
-elif windows == "Inicio" and box == "Junho" :
+elif windows == "Inicio" and box_mês == "Junho" :
     st.header("Vivo Dashborad")
     st.subheader("Dashborad voltado para análise de produtos")
     st.image(imagem)
@@ -104,5 +109,36 @@ elif windows == "Sobre":
      st.text("Dados coletados dos consultores")
      st.text("Shopping Da Bahia")
 
-elif windows =="Tabela(Seguro)":
-    pass
+elif windows =="Tabela(Seguro)" and box_mês == "Maio":
+    st.header("Tabela Seguro: ")
+    st.text("ANA")
+    st.dataframe(ANA_SEGURO)
+    st.dataframe(ANA_SEGUROT)
+
+    st.text("ANDERSON")
+    st.dataframe(ANDERSON_SEGURO)
+    st.dataframe(ANDERSON_SEGUROT)
+
+    st.text("CAROL")
+    st.dataframe(CAROL_SEGURO)
+    st.dataframe(CAROL_SEGUROT)
+
+    st.text("DAVIDG")
+    st.dataframe(DAVIDG_SEGURO)
+    st.dataframe(DAVIDG_SEGUROT)
+
+    st.text("DEBORA")
+    st.dataframe(DEBORA_SEGURO)
+    st.dataframe(DEBORA_SEGUROT)
+
+    st.text("LENE")
+    st.dataframe(LENE_SEGURO)
+    st.dataframe(LENE_SEGUROT)
+
+    st.text("WILLER")
+    st.dataframe(WILLER_SEGURO)
+    st.dataframe(WILLER_SEGUROT)
+
+    st.text("Total")
+    st.dataframe(cont_seguro)
+    
