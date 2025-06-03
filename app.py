@@ -12,7 +12,7 @@ imagem = imagem = Image.open('imagem/vivop.png')
 
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(Controle)", "Tabela(Pós)" ,"Seguro","Sobre"])
-
+box = st.sidebar.selectbox("Mês", ["Maio","Junho"])
 
 
 
@@ -49,15 +49,15 @@ if windows == "Tabela(Controle)":
     st.text("Total")
     st.dataframe(totalc)
 
-elif windows == "Inicio":
+elif windows == "Inicio" and box == "Maio":
     st.header("Vivo Dashborad")
     st.subheader("Dashborad voltado para análise de produtos")
     st.image(imagem)
-    st.subheader("Contribuição Controle")
+    st.subheader("Grafico relacionado ao mês de maio: ")
+    st.subheader("Controle: ")
     st.bar_chart(df_melt.set_index('consultor'))
-    st.subheader("Contribuição Pós")
+    st.subheader("Pós: ")
     st.bar_chart(df_melt2.set_index('consultor'))
-    
 
 elif windows == "Tabela(Pós)":
     st.header("Tabela Pós")
@@ -91,6 +91,13 @@ elif windows == "Tabela(Pós)":
 
     st.text("Total")
     st.dataframe(cont_pos)
+
+elif windows == "Inicio" and box == "Junho" :
+    st.header("Vivo Dashborad")
+    st.subheader("Dashborad voltado para análise de produtos")
+    st.image(imagem)
+    st.subheader("Grafico relacionado ao mês de Junho")
+    pass
 
 
 elif windows == "Sobre":
