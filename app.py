@@ -14,7 +14,7 @@ imagem = imagem = Image.open('imagem/vivop.png')
 
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Sobre"])
-box_mês = st.sidebar.selectbox("Mês", ["Maio","Junho"])
+box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Maio","Junho"])
 
 
 
