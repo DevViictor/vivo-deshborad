@@ -101,7 +101,7 @@ elif windows == "Inicio" and box_mês == "Junho" :
     st.header("Vivo Dashborad")
     st.subheader("Dashborad voltado para análise de produtos")
     st.image(imagem)
-    st.subheader("Grafico relacionado ao mês de Junho")
+    st.subheader("Gráfico relacionado ao mês de Junho")
     pass
 
 
