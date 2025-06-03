@@ -53,7 +53,7 @@ if windows == "Tabela(Controle)" and box_mês == "Maio":
 
 elif windows == "Inicio" and box_mês == "Maio":
     st.header("Vivo Dashborad")
-    st.subheader("Dashborad voltado para análise de produtos")
+    st.subheader("Dashborad voltado para análise de qualidade")
     st.image(imagem)
     st.subheader("Grafico relacionado ao mês de maio: ")
     st.subheader("Controle: ")
