@@ -39,9 +39,9 @@ elif windows == "Inicio" and box_mês == "Junho" :
     st.subheader("Gráfico relacionado ao mês de Junho")
     st.subheader("Controle: ")
     st.bar_chart(df_melt_junho_CONTROLE.set_index('consultor'))
-    st.subheader("PÓS: ")
+    st.subheader("Pós: ")
     st.bar_chart(df_melt_junho_PÓS.set_index('consultor'))
-    st.subheader("SEGURO: ")
+    st.subheader("Seguro: ")
     st.bar_chart(df_melt_junho_SEGURO.set_index('consultor'))
     
 
