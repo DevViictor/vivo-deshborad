@@ -11,12 +11,17 @@ totalpos = pd.read_excel(pos_total)
 
 totalseguro = pd.read_excel(seguro_dados)
 
-
+#COLUNAS
 Select_Coluns = ["DATA", "Linha" ,"Plano" , "Produto"]
 Select_Coluns2 = ["DATA", "Linha" ,"Serviço"]
+Select_Coluns3 = ["DATA", "CPF / CNPJ" ,"Serviço"]
+
+#LINHAS
 Select_Filtro = "CONTROLE"
 Select_Filtro2 = "PÓS PAGO"
 Select_Filtro3 = "Seguro"
+Select_Filtro4 = "Aparelho"
+Select_Filtro5 = "Acessórios"
 
 
 #MAIO_CONTROLE
@@ -163,12 +168,51 @@ WILLER_junhos = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", useco
 WILLER_junho_filtros = WILLER_junhos[WILLER_junhos["Serviço"] == Select_Filtro3]
 
 
+#JUNHO_APARELHOS
 
+ANA_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="ANA")
+ANA_junho_filtroa = ANA_junhoa[ANA_junhoa["Serviço"] == Select_Filtro4]
 
+AMANDA_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="AMANDA")
+AMANDA_junho_filtroa = AMANDA_junhoa[AMANDA_junhoa["Serviço"] == Select_Filtro4]
 
+ANDERSON_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="ANDERSON")
+ANDERSON_junho_filtroa = ANDERSON_junhoa[ANDERSON_junhoa["Serviço"] == Select_Filtro4]
 
+CAROL_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="CAROL")
+CAROL_junho_filtroa = CAROL_junhoa[CAROL_junhoa["Serviço"] == Select_Filtro4]
 
+DAVIDG_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="DAVIDG")
+DAVIDG_junho_filtroa = DAVIDG_junhoa[DAVIDG_junhoa["Serviço"] == Select_Filtro4]
 
+DEBORA_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="DEBORA")
+DEBORA_junho_filtroa = DEBORA_junhoa[DEBORA_junhoa["Serviço"] == Select_Filtro4]
+
+WILLER_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="WILLER")
+WILLER_junho_filtroa = WILLER_junhoa[WILLER_junhoa["Serviço"] == Select_Filtro4]
+
+#JUNHO_ACESSORIOS
+
+ANA_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="ANA")
+ANA_junho_filtroac = ANA_junhoa[ANA_junhoa["Serviço"] == Select_Filtro5]
+
+AMANDA_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="AMANDA")
+AMANDA_junho_filtroac = AMANDA_junhoa[AMANDA_junhoa["Serviço"] == Select_Filtro5]
+
+ANDERSON_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="ANDERSON")
+ANDERSON_junho_filtroac = ANDERSON_junhoa[ANDERSON_junhoa["Serviço"] == Select_Filtro5]
+
+CAROL_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="CAROL")
+CAROL_junho_filtroac = CAROL_junhoa[CAROL_junhoa["Serviço"] == Select_Filtro5]
+
+DAVIDG_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="DAVIDG")
+DAVIDG_junho_filtroac = DAVIDG_junhoa[DAVIDG_junhoa["Serviço"] == Select_Filtro5]
+
+DEBORA_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="DEBORA")
+DEBORA_junho_filtroac = DEBORA_junhoa[DEBORA_junhoa["Serviço"] == Select_Filtro5]
+
+WILLER_junhoa = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="WILLER")
+WILLER_junho_filtroac = WILLER_junhoa[WILLER_junhoa["Serviço"] == Select_Filtro5]
 
 
 

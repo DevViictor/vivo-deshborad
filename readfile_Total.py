@@ -1,6 +1,6 @@
 import pandas as pd
 
-from readfile_controle_pos import *
+from readfiles_excel import *
   
 
 
@@ -182,3 +182,61 @@ WILLER_junho_TOTALS = WILLER_junhos["Serviço"].value_counts().get("Seguro",0)
 junho_acumulado_seguro = ( ANA_junho_TOTALS + AMANDA_junho_TOTALS + ANDERSON_junho_TOTALS 
 
 + CAROL_junho_TOTALS + DAVIDG_junho_TOTALS + DEBORA_junho_TOTALS + WILLER_junho_TOTALS )
+
+#JUNHO_APARELHOS
+
+ANA_junhoa = pd.read_excel(junho_total, sheet_name="ANA")
+ANA_junho_TOTALA = ANA_junhoa["Serviço"].value_counts().get("Aparelho", 0)
+
+AMANDA_junhos = pd.read_excel(junho_total, sheet_name="AMANDA")
+AMANDA_junho_TOTALA = AMANDA_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+ANDERSON_junhos = pd.read_excel(junho_total, sheet_name="ANDERSON")
+ANDERSON_junho_TOTALA = ANDERSON_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+CAROL_junhos = pd.read_excel(junho_total, sheet_name="CAROL")
+CAROL_junho_TOTALA = CAROL_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+DAVIDG_junhos = pd.read_excel(junho_total, sheet_name="DAVIDG")
+DAVIDG_junho_TOTALA = DAVIDG_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+DEBORA_junhos = pd.read_excel(junho_total, sheet_name="DEBORA")
+DEBORA_junho_TOTALA = DEBORA_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+WILLER_junhos = pd.read_excel(junho_total, sheet_name="WILLER")
+WILLER_junho_TOTALA = WILLER_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+#JUNHO_ACUMULADO_APARELHOS
+
+junho_acumulado_aparelho = ( ANA_junho_TOTALA + AMANDA_junho_TOTALA + ANDERSON_junho_TOTALA 
+
++ CAROL_junho_TOTALA + DAVIDG_junho_TOTALA + DEBORA_junho_TOTALA + WILLER_junho_TOTALA )
+
+#JUNHO_ACESSORIOS 
+
+
+ANA_junhoac = pd.read_excel(junho_total, sheet_name="ANA")
+ANA_junho_TOTALAC = ANA_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+AMANDA_junhoac = pd.read_excel(junho_total, sheet_name="AMANDA")
+AMANDA_junho_TOTALAC = AMANDA_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+ANDERSON_junhoac = pd.read_excel(junho_total, sheet_name="ANDERSON")
+ANDERSON_junho_TOTALAC = ANDERSON_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+CAROL_junhoac = pd.read_excel(junho_total, sheet_name="CAROL")
+CAROL_junho_TOTALAC = CAROL_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+DAVIDG_junhoac = pd.read_excel(junho_total, sheet_name="DAVIDG")
+DAVIDG_junho_TOTALAC = DAVIDG_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+DEBORA_junhoac = pd.read_excel(junho_total, sheet_name="DEBORA")
+DEBORA_junho_TOTALAC = DEBORA_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+WILLER_junhoac = pd.read_excel(junho_total, sheet_name="WILLER")
+WILLER_junho_TOTALAC = WILLER_junhoac["Serviço"].value_counts().get("Acessórios", 0)
+
+
+junho_acumulado_acessório = ( ANA_junho_TOTALAC + AMANDA_junho_TOTALAC + ANDERSON_junho_TOTALAC 
+
++ CAROL_junho_TOTALAC + DAVIDG_junho_TOTALAC + DEBORA_junho_TOTALAC + WILLER_junho_TOTALAC )

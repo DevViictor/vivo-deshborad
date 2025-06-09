@@ -1,5 +1,5 @@
 import pandas as pd
-from readfile_Total_controle_pos_seguro import *
+from readfile_Total import *
 
 
 
@@ -104,5 +104,79 @@ df_junho3 = pd.DataFrame ([{
 }])
 
 df_melt_junho_SEGURO = df_junho3.melt(value_name = "valor" , var_name = "consultor")
+
+
+#junho_grafico_aparelho
+
+df_junho_ANAAP = pd.DataFrame ([{
+
+"ANA" : ANA_junho_TOTALA , 
+"TOTAL" : ANA_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_ANA = df_junho_ANAAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+
+df_junho_ANDERSONAP = pd.DataFrame ([{
+
+"ANDERSON" : ANDERSON_junho_TOTALA , 
+"TOTAL" : ANDERSON_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_ANDERSON = df_junho_ANDERSONAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_AMANDAAP = pd.DataFrame ([{
+
+"AMANDA" : AMANDA_junho_TOTALA , 
+"TOTAL" : AMANDA_junho_TOTALC
+
+}])
+
+df_melt_junho_APARELHO_AMANDA = df_junho_AMANDAAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_CAROLAP = pd.DataFrame ([{
+
+"CAROL" : ANA_junho_TOTALA , 
+"TOTAL" : ANA_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_CAROL = df_junho_CAROLAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_DEBORAAP = pd.DataFrame ([{
+
+"DEBORA" : DEBORA_junho_TOTALA , 
+"TOTAL" : DEBORA_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_DEBORA = df_junho_DEBORAAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_DAVIDGAP = pd.DataFrame ([{
+
+"DAVIDG" : DAVIDG_junho_TOTALA , 
+"TOTAL" : DAVIDG_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_DAVIDG = df_junho_DAVIDGAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_WILLERAP = pd.DataFrame ([{
+
+"WILLER" : WILLER_junho_TOTALA , 
+"TOTAL" : WILLER_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_WILLER = df_junho_WILLERAP.melt(value_name = "valor" , var_name = "consultor")
+
 
 
