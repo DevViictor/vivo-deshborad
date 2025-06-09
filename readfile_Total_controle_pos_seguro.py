@@ -101,6 +101,8 @@ ANA_junho_TOTALC = ANA_junhoc["Produto"].value_counts().get("CONTROLE",0)
 AMANDA_junhoc = pd.read_excel(junho_total, sheet_name="AMANDA")
 AMANDA_junho_TOTALC = AMANDA_junhoc["Produto"].value_counts().get("CONTROLE",0)
 
+ANDERSON_junhoc = pd.read_excel(junho_total, sheet_name="ANDERSON")
+ANDERSON_junho_TOTALC = ANDERSON_junhoc["Produto"].value_counts().get("CONTROLE",0)
 
 CAROL_junhoc = pd.read_excel(junho_total, sheet_name="CAROL")
 CAROL_junho_TOTALC = CAROL_junhoc["Produto"].value_counts().get("CONTROLE",0)
@@ -114,6 +116,12 @@ DEBORA_junho_TOTALC = DEBORA_junhoc["Produto"].value_counts().get("CONTROLE",0)
 WILLER_junhoc = pd.read_excel(junho_total, sheet_name="WILLER")
 WILLER_junho_TOTALC = WILLER_junhoc["Produto"].value_counts().get("CONTROLE",0)
 
+
+junho_acumulado_controle = ( ANA_junho_TOTALC + AMANDA_junho_TOTALC + ANDERSON_junho_TOTALC 
+
++ CAROL_junho_TOTALC + DAVIDG_junho_TOTALC + DEBORA_junho_TOTALC + WILLER_junho_TOTALC )
+
+
 #JUNHO_PÓS:
 
 
@@ -122,6 +130,9 @@ ANA_junho_TOTALP = ANA_junhop["Produto"].value_counts().get("PÓS PAGO",0)
 
 AMANDA_junhop = pd.read_excel(junho_total, sheet_name="AMANDA")
 AMANDA_junho_TOTALP = AMANDA_junhop["Produto"].value_counts().get("PÓS PAGO",0)
+
+ANDERSON_junhop = pd.read_excel(junho_total, sheet_name="ANDERSON")
+ANDERSON_junho_TOTALP = ANDERSON_junhop["Produto"].value_counts().get("PÓS PAGO",0)
 
 CAROL_junhop = pd.read_excel(junho_total, sheet_name="CAROL")
 CAROL_junho_TOTALP = CAROL_junhop["Produto"].value_counts().get("PÓS PAGO",0)
@@ -134,6 +145,13 @@ DEBORA_junho_TOTALP = DEBORA_junhop["Produto"].value_counts().get("PÓS PAGO",0)
 
 WILLER_junhop = pd.read_excel(junho_total, sheet_name="WILLER")
 WILLER_junho_TOTALP = WILLER_junhop["Produto"].value_counts().get("PÓS PAGO",0)
+
+#junho_acuumulado_pós: 
+
+junho_acumulado_pós = ( ANA_junho_TOTALP + AMANDA_junho_TOTALP + ANDERSON_junho_TOTALP 
+
++ CAROL_junho_TOTALP + DAVIDG_junho_TOTALP + DEBORA_junho_TOTALP + WILLER_junho_TOTALP )
+
 
 
 #JUNHO_SEGURO: 
@@ -158,3 +176,9 @@ DEBORA_junho_TOTALS = DEBORA_junhos["Serviço"].value_counts().get("Seguro",0)
 
 WILLER_junhos = pd.read_excel(junho_total, sheet_name="WILLER")
 WILLER_junho_TOTALS = WILLER_junhos["Serviço"].value_counts().get("Seguro",0)
+
+#JUNHO_ACUMULADO_SEGURO: 
+
+junho_acumulado_seguro = ( ANA_junho_TOTALS + AMANDA_junho_TOTALS + ANDERSON_junho_TOTALS 
+
++ CAROL_junho_TOTALS + DAVIDG_junho_TOTALS + DEBORA_junho_TOTALS + WILLER_junho_TOTALS )

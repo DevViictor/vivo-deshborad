@@ -100,7 +100,7 @@ AMANDA_junho = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecol
 AMANDA_junho_filtro = AMANDA_junho[AMANDA_junho["Produto"] == Select_Filtro]
 
 ANDERSON_junho = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns, sheet_name="ANDERSON")
-ANDEROSN_junho_filtro = ANDERSON_junho[ANDERSON_junho["Produto"] == Select_Filtro]
+ANDERSON_junho_filtro = ANDERSON_junho[ANDERSON_junho["Produto"] == Select_Filtro]
 
 CAROL_junho = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns, sheet_name="CAROL")
 CAROL_junho_filtro = CAROL_junho[CAROL_junho["Produto"] == Select_Filtro]
@@ -124,7 +124,7 @@ AMANDA_junhop = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", useco
 AMANDA_junho_filtrop = AMANDA_junhop[AMANDA_junhop["Produto"] == Select_Filtro2]
 
 ANDERSON_junhop = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns, sheet_name="ANDERSON")
-ANDEROSN_junho_filtrop = ANDERSON_junhop[ANDERSON_junhop["Produto"] == Select_Filtro2]
+ANDERSON_junho_filtrop = ANDERSON_junhop[ANDERSON_junhop["Produto"] == Select_Filtro2]
 
 CAROL_junhop = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns, sheet_name="CAROL")
 CAROL_junho_filtrop = CAROL_junhop[CAROL_junhop["Produto"] == Select_Filtro2]
