@@ -266,6 +266,5 @@ elif windows == "Sobre":
      st.text("Dados coletados das planilhas dos consultores")
      st.text("Shopping Da Bahia")
      st.text("Vivo p2")
-     st.text("Desenvolvido por: João Victor dos Santos Brito")
 
 
