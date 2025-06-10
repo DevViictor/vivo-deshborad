@@ -110,7 +110,7 @@ df_melt_junho_SEGURO = df_junho3.melt(value_name = "valor" , var_name = "consult
 
 df_junho_ANAAP = pd.DataFrame ([{
 
-"ANA" : ANA_junho_TOTALA , 
+"AP" : ANA_junho_TOTALA , 
 "AC" : ANA_junho_TOTALAC
 
 }])
@@ -121,7 +121,7 @@ df_melt_junho_APARELHO_ANA = df_junho_ANAAP.melt(value_name = "valor" , var_name
 
 df_junho_ANDERSONAP = pd.DataFrame ([{
 
-"ANDERSON" : ANDERSON_junho_TOTALA , 
+"AP" : ANDERSON_junho_TOTALA , 
 "AC" : ANDERSON_junho_TOTALAC
 
 }])
@@ -131,7 +131,7 @@ df_melt_junho_APARELHO_ANDERSON = df_junho_ANDERSONAP.melt(value_name = "valor" 
 
 df_junho_AMANDAAP = pd.DataFrame ([{
 
-"AMANDA" : AMANDA_junho_TOTALA , 
+"AP" : AMANDA_junho_TOTALA , 
 "AC" : AMANDA_junho_TOTALC
 
 }])
@@ -141,7 +141,7 @@ df_melt_junho_APARELHO_AMANDA = df_junho_AMANDAAP.melt(value_name = "valor" , va
 
 df_junho_CAROLAP = pd.DataFrame ([{
 
-"CAROL" : ANA_junho_TOTALA , 
+"AP" : ANA_junho_TOTALA , 
 "AC" : ANA_junho_TOTALAC
 
 }])
@@ -151,7 +151,7 @@ df_melt_junho_APARELHO_CAROL = df_junho_CAROLAP.melt(value_name = "valor" , var_
 
 df_junho_DEBORAAP = pd.DataFrame ([{
 
-"DEBORA" : DEBORA_junho_TOTALA , 
+"AP" : DEBORA_junho_TOTALA , 
 "AC" : DEBORA_junho_TOTALAC
 
 }])
@@ -161,7 +161,7 @@ df_melt_junho_APARELHO_DEBORA = df_junho_DEBORAAP.melt(value_name = "valor" , va
 
 df_junho_DAVIDGAP = pd.DataFrame ([{
 
-"DAVIDG" : DAVIDG_junho_TOTALA , 
+"AP" : DAVIDG_junho_TOTALA , 
 "AC" : DAVIDG_junho_TOTALAC
 
 }])
@@ -171,7 +171,7 @@ df_melt_junho_APARELHO_DAVIDG = df_junho_DAVIDGAP.melt(value_name = "valor" , va
 
 df_junho_WILLERAP = pd.DataFrame ([{
 
-"WILLER" : WILLER_junho_TOTALA , 
+"AP" : WILLER_junho_TOTALA , 
 "AC" : WILLER_junho_TOTALAC
 
 }])
