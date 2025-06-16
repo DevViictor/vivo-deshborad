@@ -236,7 +236,37 @@ DEBORA_junho_TOTALAC = DEBORA_junhoac["Serviço"].value_counts().get("Acessório
 WILLER_junhoac = pd.read_excel(junho_total, sheet_name="WILLER")
 WILLER_junho_TOTALAC = WILLER_junhoac["Serviço"].value_counts().get("Acessórios", 0)
 
-
+#total de acessorios 
 junho_acumulado_acessório = ( ANA_junho_TOTALAC + AMANDA_junho_TOTALAC + ANDERSON_junho_TOTALAC 
 
 + CAROL_junho_TOTALAC + DAVIDG_junho_TOTALAC + DEBORA_junho_TOTALAC + WILLER_junho_TOTALAC )
+
+
+#JUNHO_FIBRA: 
+
+ANA_junhof = pd.read_excel(junho_total, sheet_name="ANA")
+ANA_junho_TOTALf = ANA_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+AMANDA_junhof = pd.read_excel(junho_total, sheet_name="AMANDA")
+AMANDA_junho_TOTALf = AMANDA_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+ANDERSON_junhof = pd.read_excel(junho_total, sheet_name="ANDERSON")
+ANDERSON_junho_TOTALf = ANDERSON_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+CAROL_junhof = pd.read_excel(junho_total, sheet_name="CAROL")
+CAROL_junho_TOTALf = CAROL_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+DAVIDG_junhof = pd.read_excel(junho_total, sheet_name="DAVIDG")
+DAVIDG_junho_TOTALf = DAVIDG_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+DEBORA_junhof = pd.read_excel(junho_total, sheet_name="DEBORA")
+DEBORA_junho_TOTALf = DEBORA_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+WILLER_junhof = pd.read_excel(junho_total, sheet_name="WILLER")
+WILLER_junho_TOTALf = WILLER_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+#JUNHO_ACUMULADO_FIBRA:
+
+junho_acumulado_fibra = ( ANA_junho_TOTALf + AMANDA_junho_TOTALf + ANDERSON_junho_TOTALf
+
++ CAROL_junho_TOTALf + DAVIDG_junho_TOTALf + DEBORA_junho_TOTALf + WILLER_junho_TOTALf )

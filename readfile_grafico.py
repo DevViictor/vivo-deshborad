@@ -179,4 +179,20 @@ df_junho_WILLERAP = pd.DataFrame ([{
 df_melt_junho_APARELHO_WILLER = df_junho_WILLERAP.melt(value_name = "valor" , var_name = "consultor")
 
 
+#Junho_fibra_grafico
+
+df_junho4 = pd.DataFrame ([{
+
+'ANA' : ANA_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'ANDERSON' : ANDERSON_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'AMANDA' : AMANDA_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'CAROL' : CAROL_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'DAVIDG' : DAVIDG_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'DEBORA' : DEBORA_junho_filtrof ["Serviço"].isin(["Fixa"]).sum(),
+'WILLER' : WILLER_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+"Total" : junho_acumulado_fibra,
+
+}])
+
+df_melt_junho_fibra = df_junho4.melt(value_name = "valor" , var_name = "consultor")
 

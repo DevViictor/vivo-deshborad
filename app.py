@@ -7,13 +7,15 @@ from readfile_Total import ANA_maio_TOTALC, ANDERSON_maio_TOTALC, CAROL_maio_TOT
 from readfile_Total import ANA_maio_TOTALP, ANDERSON_maio_TOTALP, CAROL_maio_TOTALP,DEBORA_maio_TOTALP, DAVIDG_maio_TOTALP, LENE_maio_TOTALP, WILLER_maio_TOTALP
 from readfile_Total import ANA_maio_TOTALS , ANDERSON_maio_TOTALS , CAROL_maio_TOTALS , DEBORA_maio_TOTALS , DAVIDG_maio_TOTALS , LENE_maio_TOTALS , WILLER_maio_TOTALS , ANA_junho_TOTALP , AMANDA_junho_TOTALP , CAROL_junho_TOTALP , DAVIDG_junho_TOTALP , DEBORA_junho_TOTALP , WILLER_junho_TOTALP , ANA_junho_TOTALS , ANDERSON_junho_TOTALS , CAROL_junho_TOTALS ,DEBORA_junho_TOTALS , DAVIDG_junho_TOTALS , WILLER_junho_TOTALS ,AMANDA_junho_TOTALS , junho_acumulado_seguro , junho_acumulado_controle , junho_acumulado_pós , ANDERSON_junho_TOTALP , ANDERSON_junho_TOTALC
 from readfile_Total import ANA_junho_filtroa , AMANDA_junho_filtroa , ANDERSON_junho_filtroa , CAROL_junho_filtroa , DEBORA_junho_filtroa , DAVIDG_junho_filtroa , WILLER_junho_filtroa , ANA_junho_TOTALA , ANDERSON_junho_TOTALA , DEBORA_junho_TOTALA , CAROL_junho_TOTALA , DAVIDG_junho_TOTALA, WILLER_junho_TOTALA ,AMANDA_junho_TOTALA , junho_acumulado_aparelho , ANA_junhoac , ANA_junho_filtroac , AMANDA_junho_filtroac , DAVIDG_junho_filtroac , DEBORA_junho_filtroac , WILLER_junho_filtroac ,ANDERSON_junho_filtroac , CAROL_junho_filtroac
-from readfile_grafico import df_melt  , df_melt2 , df_melt3, df_melt_junho_CONTROLE, df_melt_junho_PÓS , df_melt_junho_SEGURO , df_melt_junho_APARELHO_ANA , df_melt_junho_APARELHO_AMANDA , df_melt_junho_APARELHO_ANDERSON , df_melt_junho_APARELHO_CAROL , df_melt_junho_APARELHO_DAVIDG , df_melt_junho_APARELHO_DEBORA , df_melt_junho_APARELHO_WILLER
+from readfile_grafico import df_melt  , df_melt2 , df_melt3, df_melt_junho_CONTROLE, df_melt_junho_PÓS , df_melt_junho_SEGURO , df_melt_junho_APARELHO_ANA , df_melt_junho_APARELHO_AMANDA , df_melt_junho_APARELHO_ANDERSON , df_melt_junho_APARELHO_CAROL , df_melt_junho_APARELHO_DAVIDG , df_melt_junho_APARELHO_DEBORA , df_melt_junho_APARELHO_WILLER ,df_melt_junho_fibra
+from readfiles_excel import ANA_junho_filtrof , ANDERSON_junho_filtrof , AMANDA_junho_filtrof , CAROL_junho_filtrof , DAVIDG_junho_filtrof , DEBORA_junho_filtrof , WILLER_junho_filtrof
+from readfile_Total import ANA_junho_TOTALf , ANDERSON_junho_TOTALf , AMANDA_junho_TOTALf , CAROL_junho_TOTALf , DAVIDG_junho_TOTALf , WILLER_junho_TOTALf , DEBORA_junho_TOTALf , junho_acumulado_fibra
 
 
 imagem = imagem = Image.open('imagem/vivop.png')
 
 
-windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/Acessórios)","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Tabela(Aparelho/Acessórios)","Sobre"])
+windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/Acessórios)","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Tabela(Fibra)","Tabela(Aparelho/Acessórios)","Sobre"])
 box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Maio","Junho"])
 
 
@@ -31,20 +33,7 @@ if windows == "Inicio" and box_mês == "Maio":
     st.subheader("Seguro: ")
     st.bar_chart(df_melt3.set_index('consultor'))
 
- 
-    
-elif windows == "Inicio" and box_mês == "Junho" :
-    st.header("Vivo Dashborad")
-    st.subheader("Dashboard voltado para análise de produtos")
-    st.image(imagem)
-    st.subheader("Gráfico relacionado ao mês de Junho")
-    st.subheader("Controle: ")
-    st.bar_chart(df_melt_junho_CONTROLE.set_index('consultor'))
-    st.subheader("Pós: ")
-    st.bar_chart(df_melt_junho_PÓS.set_index('consultor'))
-    st.subheader("Seguro: ")
-    st.bar_chart(df_melt_junho_SEGURO.set_index('consultor'))
-    
+
 
 
 elif windows == "Tabela(Controle)" and box_mês == "Maio":
@@ -152,39 +141,59 @@ elif windows == "Tabela(Seguro)" and box_mês == "Maio":
 
 
 #JUNHO
+elif windows == "Inicio" and box_mês == "Junho" :
+    st.header("Vivo Dashborad")
+    st.subheader("Dashboard voltado para análise de produtos")
+    st.image(imagem)
+    st.subheader("Gráfico relacionado ao mês de Junho")
+
+    st.subheader("Controle: ")
+    st.bar_chart(df_melt_junho_CONTROLE.set_index('consultor'))
+
+    st.subheader("Pós: ")
+    st.bar_chart(df_melt_junho_PÓS.set_index('consultor'))
+
+    st.subheader("Seguro: ")
+    st.bar_chart(df_melt_junho_SEGURO.set_index('consultor'))
+
+    st.subheader("Fibra: ")
+    st.bar_chart(df_melt_junho_fibra.set_index('consultor'))
+
+
+
 
 elif windows == "Tabela(Controle)" and box_mês == "Junho":
 
     st.header("Tabela (Controle)")
     
 
-    st.text("ANA")
+    st.write("ANA: ",ANA_junho_TOTALC)
     st.dataframe(ANA_junho_filtro)
-    st.write(ANA_junho_TOTALC)
+    
 
-    st.text("ANDERSON")
+    st.write("ANDERSON: ",ANDERSON_junho_TOTALC)
     st.dataframe(ANDERSON_junho_filtro)
-    st.write(ANDERSON_junho_TOTALC)
 
-    st.text("AMANDA")
+
+    st.write("AMANDA: ",AMANDA_junho_TOTALC)
     st.dataframe(AMANDA_junho_filtro)
-    st.write(AMANDA_junho_TOTALC)
 
-    st.text("CAROL")
+
+    st.write("CAROL: ",CAROL_junho_TOTALC)
     st.dataframe(CAROL_junho_filtro)
-    st.write(CAROL_junho_TOTALC)
 
-    st.text("DEBORA")
+
+    st.write("DEBORA: ",DEBORA_junho_TOTALC)
     st.dataframe(DEBORA_junho_filtro)
-    st.write(DEBORA_junho_TOTALC)
+    
 
-    st.text("DAVIDG")
+    st.write("DAVIDG: ",DAVIDG_junho_TOTALC)
     st.dataframe(DAVIDG_junho_filtro)
-    st.write(DAVIDG_junho_TOTALC)
+    
 
-    st.text("WILLER")
+    st.write("WILLER: ",WILLER_junho_TOTALC)
     st.dataframe(WILLER_junho_filtro)
-    st.write(WILLER_junho_TOTALC)
+
 
     st.write("Total controle: ",junho_acumulado_controle)
 
@@ -193,33 +202,27 @@ elif windows == "Tabela(Pós)" and box_mês == "Junho":
 
     st.header("Tabela (Pós)")
     
-    st.text("ANA")
+    st.write("ANA: ", ANA_junho_TOTALP)
     st.dataframe(ANA_junho_filtrop)
-    st.write(ANA_junho_TOTALP)
 
-    st.text("ANDERSON")
+    st.write("ANDERSON: ", ANDERSON_junho_TOTALP)
     st.dataframe(ANDERSON_junho_filtrop)
-    st.write(ANDERSON_junho_TOTALP)
 
-    st.text("AMANDA")
+    st.write("AMANDA: ", AMANDA_junho_TOTALP)
     st.dataframe(AMANDA_junho_filtrop)
-    st.write(AMANDA_junho_TOTALP)
 
-    st.text("CAROL")
+    st.write("CAROL:" , CAROL_junho_TOTALP)
     st.dataframe(CAROL_junho_filtrop)
-    st.write(CAROL_junho_TOTALP)
 
-    st.text("DAVIDG")
-    st.dataframe(DAVIDG_junho_filtrop)
-    st.write(DAVIDG_junho_TOTALP)
-
-    st.text("DEBORA")
+    st.write("DEBORA: ", DEBORA_junho_TOTALP)
     st.dataframe(DEBORA_junho_filtrop)
-    st.write(DEBORA_junho_TOTALP)
 
-    st.text("WILLER")
+    st.write("DAVIDG: ", DAVIDG_junho_TOTALP)
+    st.dataframe(DAVIDG_junho_filtrop)
+
+    st.write("WILLER:", WILLER_junho_TOTALP)
     st.dataframe(WILLER_junho_filtrop)
-    st.write(WILLER_junho_TOTALP)
+
 
     st.write("Total pós: ",junho_acumulado_pós)
 
@@ -228,37 +231,58 @@ elif windows == "Tabela(Seguro)" and box_mês == "Junho":
 
     st.header("Tabela (Seguro)")
     
-    st.text("ANA")
+    st.write("ANA: ", ANA_junho_TOTALS)
     st.dataframe(ANA_junho_filtros)
-    st.write(ANA_junho_TOTALS)
 
-    st.text("ANDERSON")
+    st.write("ANDERSON: ", ANDERSON_junho_TOTALS)
     st.dataframe(ANDERSON_junho_filtros)
-    st.write(ANDERSON_junho_TOTALS)
 
-
-    st.text("AMANDA")
+    st.write("AMANDA: ", AMANDA_junho_TOTALS)
     st.dataframe(AMANDA_junho_filtros)
-    st.write(AMANDA_junho_TOTALS)
 
-    st.text("CAROL")
+    st.write("CAROL: ", CAROL_junho_TOTALS)
     st.dataframe(CAROL_junho_filtros)
-    st.write(CAROL_junho_TOTALS)
 
-    st.text("DAVIDG")
+    st.write("DAVIDG: ", DAVIDG_junho_TOTALS)
     st.dataframe(DAVIDG_junho_filtros)
-    st.write(DAVIDG_junho_TOTALS)
 
-    st.text("DEBORA")
+    st.write("DEBORA: ", DEBORA_junho_TOTALS)
     st.dataframe(DEBORA_junho_filtros)
-    st.write(DEBORA_junho_TOTALS)
 
-    st.text("WILLER")
+    st.write("WILLER: ", WILLER_junho_TOTALS)
     st.dataframe(WILLER_junho_filtros)
-    st.write(WILLER_junho_TOTALS)
 
-    
     st.write("Total seguro: ",junho_acumulado_seguro)
+
+
+elif windows == "Tabela(Fibra)" and box_mês == "Junho":
+
+    st.header("Tabela (Fibra)")
+    
+    st.write("ANA: ", ANA_junho_TOTALf)
+    st.dataframe(ANA_junho_filtrof)
+
+    st.write("ANDERSON: ", ANDERSON_junho_TOTALf)
+    st.dataframe(ANDERSON_junho_filtrof)
+
+    st.write("AMANDA: ", AMANDA_junho_TOTALf)
+    st.dataframe(AMANDA_junho_filtrof)
+
+    st.write("CAROL: ", CAROL_junho_TOTALf)
+    st.dataframe(CAROL_junho_filtrof)
+
+    st.write("DAVIDG: ", DAVIDG_junho_TOTALf)
+    st.dataframe(DAVIDG_junho_filtrof)
+
+    st.write("DEBORA: ", DEBORA_junho_TOTALf)
+    st.dataframe(DEBORA_junho_filtrof)
+
+    st.write("WILLER: ", WILLER_junho_TOTALf)
+    st.dataframe(WILLER_junho_filtrof)
+
+    st.write("Total seguro: ",junho_acumulado_fibra)
+
+
 
 
 elif windows == "Tabela(Aparelho/Acessórios)" and box_mês == "Junho":
