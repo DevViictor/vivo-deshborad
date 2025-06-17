@@ -14,7 +14,7 @@ totalseguro = pd.read_excel(seguro_dados)
 #COLUNAS
 Select_Coluns = ["DATA", "Linha" ,"Plano" , "Produto"]
 Select_Coluns2 = ["DATA", "Linha" ,"Serviço"]
-Select_Coluns3 = ["DATA", "CPF / CNPJ" ,"Serviço","Instância"]
+Select_Coluns3 = ["DATA", "Linha" ,"Serviço","Instância"]
 
 #LINHAS
 Select_Filtro = "CONTROLE"
