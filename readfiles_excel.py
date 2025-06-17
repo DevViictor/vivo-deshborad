@@ -14,7 +14,7 @@ totalseguro = pd.read_excel(seguro_dados)
 #COLUNAS
 Select_Coluns = ["DATA", "Linha" ,"Plano" , "Produto"]
 Select_Coluns2 = ["DATA", "Linha" ,"Serviço"]
-Select_Coluns3 = ["DATA", "CPF / CNPJ" ,"Serviço"]
+Select_Coluns3 = ["DATA", "CPF / CNPJ" ,"Serviço","Instância"]
 
 #LINHAS
 Select_Filtro = "CONTROLE"
@@ -218,23 +218,23 @@ WILLER_junho_filtroac = WILLER_junhoa[WILLER_junhoa["Serviço"] == Select_Filtro
 
 #JUNHO_FIBRA: 
 
-ANA_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="ANA")
+ANA_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="ANA")
 ANA_junho_filtrof = ANA_junhof[ANA_junhof["Serviço"] == Select_Filtro6]
 
-AMANDA_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="AMANDA")
+AMANDA_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="AMANDA")
 AMANDA_junho_filtrof = AMANDA_junhof[AMANDA_junhof["Serviço"] == Select_Filtro6]
 
-ANDERSON_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="ANDERSON")
+ANDERSON_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="ANDERSON")
 ANDERSON_junho_filtrof = ANDERSON_junhof[ANDERSON_junhof["Serviço"] == Select_Filtro6]
 
-CAROL_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="CAROL")
+CAROL_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="CAROL")
 CAROL_junho_filtrof = CAROL_junhof[CAROL_junhof["Serviço"] == Select_Filtro6]
 
-DAVIDG_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="DAVIDG")
+DAVIDG_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="DAVIDG")
 DAVIDG_junho_filtrof = DAVIDG_junhof[DAVIDG_junhof["Serviço"] == Select_Filtro6]
 
-DEBORA_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="DEBORA")
+DEBORA_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="DEBORA")
 DEBORA_junho_filtrof = DEBORA_junhof[DEBORA_junhof["Serviço"] == Select_Filtro6]
 
-WILLER_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns2, sheet_name="WILLER")
+WILLER_junhof = pd.read_excel("excel_file/vendedores_controle_junho.xlsx", usecols=Select_Coluns3, sheet_name="WILLER")
 WILLER_junho_filtrof = WILLER_junhof[WILLER_junhof["Serviço"] == Select_Filtro6]
