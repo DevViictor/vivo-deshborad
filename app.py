@@ -12,7 +12,7 @@ from readfiles_excel import ANA_junho_filtrof , ANDERSON_junho_filtrof , AMANDA_
 from readfile_Total import ANA_junho_TOTALf , ANDERSON_junho_TOTALf , AMANDA_junho_TOTALf , CAROL_junho_TOTALf , DAVIDG_junho_TOTALf , WILLER_junho_TOTALf , DEBORA_junho_TOTALf , junho_acumulado_fibra
 
 
-imagem = imagem = Image.open('imagem/vivop.png')
+imagem = imagem = Image.open('imagem/estoque.png')
 
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/Acessórios)","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Tabela(Fibra)","Tabela(Aparelho/Acessórios)","Sobre"])
@@ -22,8 +22,8 @@ box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Maio","Junho"])
 
 
 if windows == "Inicio" and box_mês == "Maio":
-    st.header("Vivo Dashborad")
-    st.subheader("Dashborad voltado para análise de qualidade")
+    
+    st.subheader("Dashboard voltado para análise de qualidade")
     st.image(imagem)
     st.subheader("Gráfico relacionado ao mês de maio: ")
     st.subheader("Controle: ")
@@ -142,8 +142,8 @@ elif windows == "Tabela(Seguro)" and box_mês == "Maio":
 
 #JUNHO
 elif windows == "Inicio" and box_mês == "Junho" :
-    st.header("Vivo Dashborad")
-    st.subheader("Dashboard voltado para análise de produtos")
+
+    st.subheader("Dashboard voltado para análise de qualidade")
     st.image(imagem)
     st.subheader("Gráfico relacionado ao mês de Junho")
 
@@ -327,8 +327,8 @@ elif windows == "Tabela(Aparelho/Acessórios)" and box_mês == "Junho":
     st.write("Total Aparelho: ",junho_acumulado_aparelho)
     
 elif windows == ("Gráfico(Aparelho/Acessórios)") and box_mês == "Junho":
-    st.header("Vivo Dashborad")
-    st.subheader("Dashboard voltado para análise de produtos")
+
+    st.subheader("Dashboard voltado para análise de qualidade")
     st.image(imagem)
     st.subheader("Gráfico(Aparelho/Acessórios)")
     st.subheader("ANA: ")
