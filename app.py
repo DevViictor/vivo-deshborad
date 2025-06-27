@@ -1,147 +1,371 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
-from readfiles_excel import ANA_maio_filtro , ANDERSON_maio_filtro , CAROL_maio_filtro , DEBORA_maio_filtro , DAVIDG_maio_filtro , LENE_maio_filtro , WILLER_maio_filtro , ANA_maio_filtrop , ANDERSON_maio_filtrop  , CAROL_maio_filtrop , DAVIDG_maio_filtrop , DEBORA_maio_filtrop , LENE_maio_filtrop , WILLER_maio_filtrop , ANA_junho_filtro , AMANDA_junho_filtro , DAVIDG_junho_filtro , DEBORA_junho_filtro , CAROL_junho_filtro , WILLER_junho_filtro , ANA_maio_filtros , ANDERSON_maio_filtros , CAROL_maio_filtros , DEBORA_maio_filtros , DAVIDG_maio_filtros , LENE_maio_filtros , WILLER_maio_filtros , ANA_junho_filtrop , AMANDA_junho_filtrop , CAROL_junho_filtrop , DAVIDG_junho_filtrop , DEBORA_junho_filtrop , WILLER_junho_filtrop , AMANDA_junho_filtros , ANA_junho_filtros  , DEBORA_junho_filtros , DAVIDG_junho_filtros , CAROL_junho_filtros , WILLER_junho_filtros , ANDERSON_junho_filtros , ANDERSON_junho_filtro , ANDERSON_junho_filtrop
-from readfile_Total import totalc , cont_seguro ,cont_pos, ANA_junho_TOTALC , AMANDA_junho_TOTALC , CAROL_junho_TOTALC , DAVIDG_junho_TOTALC , DEBORA_junho_TOTALC , WILLER_junho_TOTALC 
-from readfile_Total import ANA_maio_TOTALC, ANDERSON_maio_TOTALC, CAROL_maio_TOTALC,DEBORA_maio_TOTALC, DAVIDG_maio_TOTALC, LENE_maio_TOTALC, WILLER_maio_TOTALC 
-from readfile_Total import ANA_maio_TOTALP, ANDERSON_maio_TOTALP, CAROL_maio_TOTALP,DEBORA_maio_TOTALP, DAVIDG_maio_TOTALP, LENE_maio_TOTALP, WILLER_maio_TOTALP
-from readfile_Total import ANA_maio_TOTALS , ANDERSON_maio_TOTALS , CAROL_maio_TOTALS , DEBORA_maio_TOTALS , DAVIDG_maio_TOTALS , LENE_maio_TOTALS , WILLER_maio_TOTALS , ANA_junho_TOTALP , AMANDA_junho_TOTALP , CAROL_junho_TOTALP , DAVIDG_junho_TOTALP , DEBORA_junho_TOTALP , WILLER_junho_TOTALP , ANA_junho_TOTALS , ANDERSON_junho_TOTALS , CAROL_junho_TOTALS ,DEBORA_junho_TOTALS , DAVIDG_junho_TOTALS , WILLER_junho_TOTALS ,AMANDA_junho_TOTALS , junho_acumulado_seguro , junho_acumulado_controle , junho_acumulado_pós , ANDERSON_junho_TOTALP , ANDERSON_junho_TOTALC
-from readfile_Total import ANA_junho_filtroa , AMANDA_junho_filtroa , ANDERSON_junho_filtroa , CAROL_junho_filtroa , DEBORA_junho_filtroa , DAVIDG_junho_filtroa , WILLER_junho_filtroa , ANA_junho_TOTALA , ANDERSON_junho_TOTALA , DEBORA_junho_TOTALA , CAROL_junho_TOTALA , DAVIDG_junho_TOTALA, WILLER_junho_TOTALA ,AMANDA_junho_TOTALA , junho_acumulado_aparelho , ANA_junhoac , ANA_junho_filtroac , AMANDA_junho_filtroac , DAVIDG_junho_filtroac , DEBORA_junho_filtroac , WILLER_junho_filtroac ,ANDERSON_junho_filtroac , CAROL_junho_filtroac
-from readfile_grafico import df_melt  , df_melt2 , df_melt3, df_melt_junho_CONTROLE, df_melt_junho_PÓS , df_melt_junho_SEGURO , df_melt_junho_APARELHO_ANA , df_melt_junho_APARELHO_AMANDA , df_melt_junho_APARELHO_ANDERSON , df_melt_junho_APARELHO_CAROL , df_melt_junho_APARELHO_DAVIDG , df_melt_junho_APARELHO_DEBORA , df_melt_junho_APARELHO_WILLER ,df_melt_junho_fibra
-from readfiles_excel import ANA_junho_filtrof , ANDERSON_junho_filtrof , AMANDA_junho_filtrof , CAROL_junho_filtrof , DAVIDG_junho_filtrof , DEBORA_junho_filtrof , WILLER_junho_filtrof
-from readfile_Total import ANA_junho_TOTALf , ANDERSON_junho_TOTALf , AMANDA_junho_TOTALf , CAROL_junho_TOTALf , DAVIDG_junho_TOTALf , WILLER_junho_TOTALf , DEBORA_junho_TOTALf , junho_acumulado_fibra
+from Filtros import  Select_Filtro , Select_Coluns, Select_Coluns2, Select_Coluns3 , Select_Filtro2 ,Select_Filtro3 ,Select_Filtro4 ,Select_Filtro5 ,Select_Filtro6 
 
 
 imagem = imagem = Image.open('imagem/estoque.png')
 
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/Acessórios)","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Tabela(Fibra)","Tabela(Aparelho/Acessórios)","Sobre"])
-box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Maio","Junho"])
+box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Junho"])
 
 
+arquivo = st.file_uploader("Carregue sua planilha do excel",type="xlsx")
+
+if arquivo is not None:
+    # JUNHO_CONTROLE
+    ANA_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="ANA")
+    ANA_junho_filtro = ANA_junho[ANA_junho["Produto"] == Select_Filtro]
+    ANA_junho_TOTALC = ANA_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    AMANDA_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="AMANDA")
+    AMANDA_junho_filtro = AMANDA_junho[AMANDA_junho["Produto"] == Select_Filtro]
+    AMANDA_junho_TOTALC = AMANDA_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    ANDERSON_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="ANDERSON")
+    ANDERSON_junho_filtro = ANDERSON_junho[ANDERSON_junho["Produto"] == Select_Filtro]
+    ANDERSON_junho_TOTALC = ANDERSON_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    CAROL_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="CAROL")
+    CAROL_junho_filtro = CAROL_junho[CAROL_junho["Produto"] == Select_Filtro]
+    CAROL_junho_TOTALC = CAROL_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    DAVIDG_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="DAVIDG")
+    DAVIDG_junho_filtro = DAVIDG_junho[DAVIDG_junho["Produto"] == Select_Filtro]
+    DAVIDG_junho_TOTALC = DAVIDG_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    DEBORA_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="DEBORA")
+    DEBORA_junho_filtro = DEBORA_junho[DEBORA_junho["Produto"] == Select_Filtro]
+    DEBORA_junho_TOTALC = DEBORA_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    WILLER_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="WILLER")
+    WILLER_junho_filtro = WILLER_junho[WILLER_junho["Produto"] == Select_Filtro]
+    WILLER_junho_TOTALC = WILLER_junho["Produto"].value_counts().get("CONTROLE", 0)
+
+    junho_acumulado_controle = ( ANA_junho_TOTALC + AMANDA_junho_TOTALC + ANDERSON_junho_TOTALC 
+
++ CAROL_junho_TOTALC + DAVIDG_junho_TOTALC + DEBORA_junho_TOTALC + WILLER_junho_TOTALC )
 
 
-if windows == "Inicio" and box_mês == "Maio":
+    # JUNHO_PÓS
+    ANA_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="ANA")
+    ANA_junho_filtrop = ANA_junhop[ANA_junhop["Produto"] == Select_Filtro2]
+    ANA_junho_TOTALP = ANA_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    AMANDA_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="AMANDA")
+    AMANDA_junho_filtrop = AMANDA_junhop[AMANDA_junhop["Produto"] == Select_Filtro2]
+    AMANDA_junho_TOTALP = AMANDA_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    ANDERSON_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="ANDERSON")
+    ANDERSON_junho_filtrop = ANDERSON_junhop[ANDERSON_junhop["Produto"] == Select_Filtro2]
+    ANDERSON_junho_TOTALP = ANDERSON_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    CAROL_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="CAROL")
+    CAROL_junho_filtrop = CAROL_junhop[CAROL_junhop["Produto"] == Select_Filtro2]
+    CAROL_junho_TOTALP = CAROL_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    DAVIDG_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="DAVIDG")
+    DAVIDG_junho_filtrop = DAVIDG_junhop[DAVIDG_junhop["Produto"] == Select_Filtro2]
+    DAVIDG_junho_TOTALP = DAVIDG_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    DEBORA_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="DEBORA")
+    DEBORA_junho_filtrop = DEBORA_junhop[DEBORA_junhop["Produto"] == Select_Filtro2]
+    DEBORA_junho_TOTALP = DEBORA_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    WILLER_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="WILLER")
+    WILLER_junho_filtrop = WILLER_junhop[WILLER_junhop["Produto"] == Select_Filtro2]
+    WILLER_junho_TOTALP = WILLER_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
+
+    junho_acumulado_pós = (
+    ANA_junho_TOTALP + AMANDA_junho_TOTALP + ANDERSON_junho_TOTALP +
+    CAROL_junho_TOTALP + DAVIDG_junho_TOTALP + DEBORA_junho_TOTALP + WILLER_junho_TOTALP)
+
+
     
-    st.subheader("Dashboard voltado para análise de qualidade")
-    st.image(imagem)
-    st.subheader("Gráfico relacionado ao mês de maio: ")
-    st.subheader("Controle: ")
-    st.bar_chart(df_melt.set_index('consultor'))
-    st.subheader("Pós: ")
-    st.bar_chart(df_melt2.set_index('consultor'))
-    st.subheader("Seguro: ")
-    st.bar_chart(df_melt3.set_index('consultor'))
+    # JUNHO_SEGURO
+    ANA_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANA")
+    ANA_junho_filtros = ANA_junhos[ANA_junhos["Serviço"] == Select_Filtro3]
+    ANA_junho_TOTALS = ANA_junhos["Serviço"].value_counts().get("Seguro", 0)
 
+    AMANDA_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="AMANDA")
+    AMANDA_junho_filtros = AMANDA_junhos[AMANDA_junhos["Serviço"] == Select_Filtro3]
+    AMANDA_junho_TOTALS = AMANDA_junhos["Serviço"].value_counts().get("Seguro", 0)
 
+    ANDERSON_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANDERSON")
+    ANDERSON_junho_filtros = ANDERSON_junhos[ANDERSON_junhos["Serviço"] == Select_Filtro3]
+    ANDERSON_junho_TOTALS = ANDERSON_junhos["Serviço"].value_counts().get("Seguro", 0)
 
+    CAROL_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="CAROL")
+    CAROL_junho_filtros = CAROL_junhos[CAROL_junhos["Serviço"] == Select_Filtro3]
+    CAROL_junho_TOTALS = CAROL_junhos["Serviço"].value_counts().get("Seguro", 0)
 
-elif windows == "Tabela(Controle)" and box_mês == "Maio":
+    DAVIDG_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DAVIDG")
+    DAVIDG_junho_filtros = DAVIDG_junhos[DAVIDG_junhos["Serviço"] == Select_Filtro3]
+    DAVIDG_junho_TOTALS = DAVIDG_junhos["Serviço"].value_counts().get("Seguro", 0)
 
-    st.text("ANA")
-    st.dataframe(ANA_maio_filtro)
-    st.write(ANA_maio_TOTALC)
+    DEBORA_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DEBORA")
+    DEBORA_junho_filtros = DEBORA_junhos[DEBORA_junhos["Serviço"] == Select_Filtro3]
+    DEBORA_junho_TOTALS = DEBORA_junhos["Serviço"].value_counts().get("Seguro", 0)
 
-    st.text("ANDERSON")
-    st.dataframe(ANDERSON_maio_filtro)
-    st.write(ANDERSON_maio_TOTALC)
+    WILLER_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="WILLER")
+    WILLER_junho_filtros = WILLER_junhos[WILLER_junhos["Serviço"] == Select_Filtro3]
+    WILLER_junho_TOTALS = WILLER_junhos["Serviço"].value_counts().get("Seguro", 0)
 
-    st.text("CAROL")
-    st.dataframe(CAROL_maio_filtro)
-    st.write(CAROL_maio_TOTALC)
-
-    st.text("DAVIDG")
-    st.dataframe(DAVIDG_maio_filtro)
-    st.write(DAVIDG_maio_TOTALC)
-
-    st.text("DEBORA")
-    st.dataframe(DEBORA_maio_filtro)
-    st.write(DEBORA_maio_TOTALC)
-
-    st.text("LENE")
-    st.dataframe(LENE_maio_filtro)
-    st.write(LENE_maio_TOTALC)
-
-    st.text("WILLER")
-    st.dataframe(WILLER_maio_filtro)
-    st.write(WILLER_maio_TOTALC)
-
-
-    st.text("Total")
-    st.write(totalc)
+    junho_acumulado_seguro = (
+    ANA_junho_TOTALS + AMANDA_junho_TOTALS + ANDERSON_junho_TOTALS +
+    CAROL_junho_TOTALS + DAVIDG_junho_TOTALS + DEBORA_junho_TOTALS + WILLER_junho_TOTALS)
     
 
-elif windows == "Tabela(Pós)" and box_mês == "Maio":
-    st.header("Tabela Pós")
-    
-    st.text("ANA")
-    st.dataframe(ANA_maio_filtrop)
-    st.write(ANA_maio_TOTALP)
+    # JUNHO_APARELHOS
+    ANA_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANA")
+    ANA_junho_filtroa = ANA_junhoa[ANA_junhoa["Serviço"] == Select_Filtro4]
+    ANA_junho_TOTALA = ANA_junhoa["Serviço"].value_counts().get("Aparelho", 0)
 
-    st.text("ANDERSON")
-    st.dataframe(ANDERSON_maio_filtrop)
-    st.write(ANDERSON_maio_TOTALP)
-
-    st.text("CAROL")
-    st.dataframe(CAROL_maio_filtrop)
-    st.write(CAROL_maio_TOTALP)
-
-    st.text("DAVIDG")
-    st.dataframe(DAVIDG_maio_filtrop)
-    st.write(DAVIDG_maio_TOTALP)
-
-    st.text("DEBORA")
-    st.dataframe(DEBORA_maio_filtrop)
-    st.write(DEBORA_maio_TOTALP)
-
-    st.text("LENE")
-    st.dataframe(LENE_maio_filtrop)
-    st.write(LENE_maio_TOTALP)
-
-    st.text("WILLER")
-    st.dataframe(WILLER_maio_filtrop)
-    st.write(WILLER_maio_TOTALP)
-
-    st.text("Total")
-    st.write(cont_pos)
-
-elif windows == "Tabela(Seguro)" and box_mês == "Maio":
-    st.header("Tabela Seguro")
-    
-    st.text("ANA")
-    st.dataframe(ANA_maio_filtros)
-    st.write(ANA_maio_TOTALS)
-
-    st.text("ANDERSON")
-    st.dataframe(ANDERSON_maio_filtros)
-    st.write(ANDERSON_maio_TOTALS)
-
-    st.text("CAROL")
-    st.dataframe(CAROL_maio_filtros)
-    st.write(CAROL_maio_TOTALS)
-
-    st.text("DAVIDG")
-    st.dataframe(DAVIDG_maio_filtros)
-    st.write(DAVIDG_maio_TOTALS)
-
-    st.text("DEBORA")
-    st.dataframe(DEBORA_maio_filtros)
-    st.write(DEBORA_maio_TOTALS)
-
-    st.text("LENE")
-    st.dataframe(LENE_maio_filtros)
-    st.write(LENE_maio_TOTALS)
-
-    st.text("WILLER")
-    st.dataframe(WILLER_maio_filtros)
-    st.write(WILLER_maio_TOTALS)
-
-    st.text("Total")
-    st.write(cont_seguro)
+    AMANDA_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="AMANDA")
+    AMANDA_junho_filtroa = AMANDA_junhoa[AMANDA_junhoa["Serviço"] == Select_Filtro4]
+    AMANDA_junho_TOTALA = AMANDA_junhos["Serviço"].value_counts().get("Aparelho", 0)
 
 
-#JUNHO
-elif windows == "Inicio" and box_mês == "Junho" :
+    ANDERSON_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANDERSON")
+    ANDERSON_junho_filtroa = ANDERSON_junhoa[ANDERSON_junhoa["Serviço"] == Select_Filtro4]
+    ANDERSON_junho_TOTALA = ANDERSON_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+    CAROL_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="CAROL")
+    CAROL_junho_filtroa = CAROL_junhoa[CAROL_junhoa["Serviço"] == Select_Filtro4]
+    CAROL_junho_TOTALA = CAROL_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+
+    DAVIDG_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DAVIDG")
+    DAVIDG_junho_filtroa = DAVIDG_junhoa[DAVIDG_junhoa["Serviço"] == Select_Filtro4]
+    DAVIDG_junho_TOTALA = DAVIDG_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+    DEBORA_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DEBORA")
+    DEBORA_junho_filtroa = DEBORA_junhoa[DEBORA_junhoa["Serviço"] == Select_Filtro4]
+    DEBORA_junho_TOTALA = DEBORA_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+    WILLER_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="WILLER")
+    WILLER_junho_filtroa = WILLER_junhoa[WILLER_junhoa["Serviço"] == Select_Filtro4]
+    WILLER_junho_TOTALA = WILLER_junhos["Serviço"].value_counts().get("Aparelho", 0)
+
+    #TOTAL_APARELHOS_ACUMULADO
+
+    junho_acumulado_aparelho = ( ANA_junho_TOTALA + AMANDA_junho_TOTALA + ANDERSON_junho_TOTALA 
+
++ CAROL_junho_TOTALA + DAVIDG_junho_TOTALA + DEBORA_junho_TOTALA + WILLER_junho_TOTALA )
+
+
+
+    # JUNHO_ACESSORIOS
+    ANA_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANA")
+    ANA_junho_filtroac = ANA_junhoa[ANA_junhoa["Serviço"] == Select_Filtro5]
+    ANA_junho_TOTALAC = ANA_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+    AMANDA_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="AMANDA")
+    AMANDA_junho_filtroac = AMANDA_junhoa[AMANDA_junhoa["Serviço"] == Select_Filtro5]
+    AMANDA_junho_TOTALAC = AMANDA_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+    ANDERSON_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANDERSON")
+    ANDERSON_junho_filtroac = ANDERSON_junhoa[ANDERSON_junhoa["Serviço"] == Select_Filtro5]
+    ANDERSON_junho_TOTALAC = ANDERSON_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+    CAROL_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="CAROL")
+    CAROL_junho_filtroac = CAROL_junhoa[CAROL_junhoa["Serviço"] == Select_Filtro5]
+    CAROL_junho_TOTALAC = CAROL_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+    DAVIDG_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DAVIDG")
+    DAVIDG_junho_filtroac = DAVIDG_junhoa[DAVIDG_junhoa["Serviço"] == Select_Filtro5]
+    DAVIDG_junho_TOTALAC = DAVIDG_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+    DEBORA_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DEBORA")
+    DEBORA_junho_filtroac = DEBORA_junhoa[DEBORA_junhoa["Serviço"] == Select_Filtro5]
+    DEBORA_junho_TOTALAC = DEBORA_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+    WILLER_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="WILLER")
+    WILLER_junho_filtroac = WILLER_junhoa[WILLER_junhoa["Serviço"] == Select_Filtro5]
+    WILLER_junho_TOTALAC = WILLER_junhoa["Serviço"].value_counts().get("Acessórios", 0)
+
+
+   
+    # JUNHO_FIBRA
+    ANA_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="ANA")
+    ANA_junho_filtrof = ANA_junhof[ANA_junhof["Serviço"] == Select_Filtro6]
+    ANA_junho_TOTALf = ANA_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    AMANDA_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="AMANDA")
+    AMANDA_junho_filtrof = AMANDA_junhof[AMANDA_junhof["Serviço"] == Select_Filtro6]
+    AMANDA_junho_TOTALf = AMANDA_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    ANDERSON_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="ANDERSON")
+    ANDERSON_junho_filtrof = ANDERSON_junhof[ANDERSON_junhof["Serviço"] == Select_Filtro6]
+    ANDERSON_junho_TOTALf = ANDERSON_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    CAROL_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="CAROL")
+    CAROL_junho_filtrof = CAROL_junhof[CAROL_junhof["Serviço"] == Select_Filtro6]
+    CAROL_junho_TOTALf = CAROL_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    DAVIDG_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="DAVIDG")
+    DAVIDG_junho_filtrof = DAVIDG_junhof[DAVIDG_junhof["Serviço"] == Select_Filtro6]
+    DAVIDG_junho_TOTALf = DAVIDG_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    DEBORA_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="DEBORA")
+    DEBORA_junho_filtrof = DEBORA_junhof[DEBORA_junhof["Serviço"] == Select_Filtro6]
+    DEBORA_junho_TOTALf = DEBORA_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    WILLER_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="WILLER")
+    WILLER_junho_filtrof = WILLER_junhof[WILLER_junhof["Serviço"] == Select_Filtro6]
+    WILLER_junho_TOTALf = WILLER_junhof["Serviço"].value_counts().get("Fixa", 0)
+
+    #total
+    junho_acumulado_fibra = ( ANA_junho_TOTALf + AMANDA_junho_TOTALf + ANDERSON_junho_TOTALf
+
++ CAROL_junho_TOTALf + DAVIDG_junho_TOTALf + DEBORA_junho_TOTALf + WILLER_junho_TOTALf )
+
+#junho_grafico_controle
+
+df_junho = pd.DataFrame ([{
+
+'ANA' : ANA_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
+'ANDERSON' : ANDERSON_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
+'AMANDA' :  AMANDA_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
+'CAROL' : CAROL_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
+'DAVIDG' : DAVIDG_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
+'DEBORA' : DEBORA_junho_filtro ["Produto"].isin(["CONTROLE"]).sum(),
+'WILLER' : WILLER_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
+"Total" : junho_acumulado_controle,
+}])
+
+df_melt_junho_CONTROLE = df_junho.melt(value_name = "valor" , var_name = "consultor")
+
+
+#junho_grafico_pós
+
+df_junho2 = pd.DataFrame ([{
+
+'ANA' : ANA_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
+'ANDERSON' : ANDERSON_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
+'AMANDA'  : AMANDA_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
+'CAROL' : CAROL_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
+'DAVIDG' : DAVIDG_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
+'DEBORA' : DEBORA_junho_filtrop ["Produto"].isin(["PÓS PAGO"]).sum(),
+'WILLER' : WILLER_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
+"TOTAL" : junho_acumulado_pós,
+
+}])
+
+df_melt_junho_PÓS = df_junho2.melt(value_name = "valor" , var_name = "consultor")
+
+#junho_grafico_seguro
+
+df_junho3 = pd.DataFrame ([{
+
+'ANA' : ANA_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
+'ANDERSON' : ANDERSON_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
+'AMANDA' : AMANDA_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
+'CAROL' : CAROL_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
+'DAVIDG' : DAVIDG_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
+'DEBORA' : DEBORA_junho_filtros ["Serviço"].isin(["Seguro"]).sum(),
+'WILLER' : WILLER_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
+"Total" : junho_acumulado_seguro,
+
+}])
+
+df_melt_junho_SEGURO = df_junho3.melt(value_name = "valor" , var_name = "consultor")
+
+
+#junho_grafico_aparelho
+
+df_junho_ANAAP = pd.DataFrame ([{
+
+"AP" : ANA_junho_TOTALA , 
+"AC" : ANA_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_ANA = df_junho_ANAAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+
+df_junho_ANDERSONAP = pd.DataFrame ([{
+
+"AP" : ANDERSON_junho_TOTALA , 
+"AC" : ANDERSON_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_ANDERSON = df_junho_ANDERSONAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_AMANDAAP = pd.DataFrame ([{
+
+"AP" : AMANDA_junho_TOTALA , 
+"AC" : AMANDA_junho_TOTALC
+
+}])
+
+df_melt_junho_APARELHO_AMANDA = df_junho_AMANDAAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_CAROLAP = pd.DataFrame ([{
+
+"AP" : ANA_junho_TOTALA , 
+"AC" : ANA_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_CAROL = df_junho_CAROLAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_DEBORAAP = pd.DataFrame ([{
+
+"AP" : DEBORA_junho_TOTALA , 
+"AC" : DEBORA_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_DEBORA = df_junho_DEBORAAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_DAVIDGAP = pd.DataFrame ([{
+
+"AP" : DAVIDG_junho_TOTALA , 
+"AC" : DAVIDG_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_DAVIDG = df_junho_DAVIDGAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+df_junho_WILLERAP = pd.DataFrame ([{
+
+"AP" : WILLER_junho_TOTALA , 
+"AC" : WILLER_junho_TOTALAC
+
+}])
+
+df_melt_junho_APARELHO_WILLER = df_junho_WILLERAP.melt(value_name = "valor" , var_name = "consultor")
+
+
+#Junho_fibra_grafico
+
+df_junho4 = pd.DataFrame ([{
+
+'ANA' : ANA_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'ANDERSON' : ANDERSON_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'AMANDA' : AMANDA_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'CAROL' : CAROL_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'DAVIDG' : DAVIDG_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+'DEBORA' : DEBORA_junho_filtrof ["Serviço"].isin(["Fixa"]).sum(),
+'WILLER' : WILLER_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
+"Total" : junho_acumulado_fibra,
+
+}])
+
+df_melt_junho_fibra = df_junho4.melt(value_name = "valor" , var_name = "consultor")
+
+
+
+if windows == "Inicio" and box_mês == "Junho" :
 
     st.subheader("Dashboard voltado para análise de qualidade")
     st.image(imagem)
@@ -160,13 +384,9 @@ elif windows == "Inicio" and box_mês == "Junho" :
     st.bar_chart(df_melt_junho_fibra.set_index('consultor'))
 
 
-
-
 elif windows == "Tabela(Controle)" and box_mês == "Junho":
-
-    st.header("Tabela (Controle)")
     
-
+    st.header("Tabela (Controle)")
     st.write("ANA: ",ANA_junho_TOTALC)
     st.dataframe(ANA_junho_filtro)
     
@@ -196,7 +416,11 @@ elif windows == "Tabela(Controle)" and box_mês == "Junho":
 
 
     st.write("Total controle: ",junho_acumulado_controle)
+    
 
+    
+
+    
 
 elif windows == "Tabela(Pós)" and box_mês == "Junho":
 
