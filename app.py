@@ -11,7 +11,7 @@ windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/A
 box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Junho"])
 
 
-arquivo = st.file_uploader("Carregue sua planilha do excel",type="xlsx")
+arquivo = st.file_uploader("Carregue a Planilha Modelo_Vendedores_P2",type="xlsx")
 
 if arquivo is not None:
     # JUNHO_CONTROLE
