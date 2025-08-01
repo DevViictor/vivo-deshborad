@@ -448,7 +448,7 @@ elif windows == "Tabela(Fibra)" :
     st.write("WILLER: ", WILLER_junho_TOTALf)
     st.dataframe(WILLER_junho_filtrof)
 
-    st.write("Total seguro: ",junho_acumulado_fibra)
+    st.write("Total fibra: ",junho_acumulado_fibra)
 
 
 
