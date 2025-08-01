@@ -8,7 +8,7 @@ imagem = imagem = Image.open('imagem/estoque.png')
 
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/Acessórios)","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Tabela(Fibra)","Tabela(Aparelho/Acessórios)","Sobre"])
-box_mês = st.sidebar.selectbox("Selecione o mês desejado:", ["Junho"])
+
 
 
 arquivo = st.file_uploader("Carregue a Planilha Modelo_Vendedores_P2",type="xlsx")
@@ -27,10 +27,6 @@ if arquivo is not None:
     ANDERSON_junho_filtro = ANDERSON_junho[ANDERSON_junho["Produto"] == Select_Filtro]
     ANDERSON_junho_TOTALC = ANDERSON_junho["Produto"].value_counts().get("CONTROLE", 0)
 
-    CAROL_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="CAROL")
-    CAROL_junho_filtro = CAROL_junho[CAROL_junho["Produto"] == Select_Filtro]
-    CAROL_junho_TOTALC = CAROL_junho["Produto"].value_counts().get("CONTROLE", 0)
-
     DAVIDG_junho = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="DAVIDG")
     DAVIDG_junho_filtro = DAVIDG_junho[DAVIDG_junho["Produto"] == Select_Filtro]
     DAVIDG_junho_TOTALC = DAVIDG_junho["Produto"].value_counts().get("CONTROLE", 0)
@@ -45,7 +41,7 @@ if arquivo is not None:
 
     junho_acumulado_controle = ( ANA_junho_TOTALC + AMANDA_junho_TOTALC + ANDERSON_junho_TOTALC 
 
-+ CAROL_junho_TOTALC + DAVIDG_junho_TOTALC + DEBORA_junho_TOTALC + WILLER_junho_TOTALC )
+ + DAVIDG_junho_TOTALC + DEBORA_junho_TOTALC + WILLER_junho_TOTALC )
 
 
     # JUNHO_PÓS
@@ -61,10 +57,6 @@ if arquivo is not None:
     ANDERSON_junho_filtrop = ANDERSON_junhop[ANDERSON_junhop["Produto"] == Select_Filtro2]
     ANDERSON_junho_TOTALP = ANDERSON_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
 
-    CAROL_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="CAROL")
-    CAROL_junho_filtrop = CAROL_junhop[CAROL_junhop["Produto"] == Select_Filtro2]
-    CAROL_junho_TOTALP = CAROL_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
-
     DAVIDG_junhop = pd.read_excel(arquivo, usecols=Select_Coluns, sheet_name="DAVIDG")
     DAVIDG_junho_filtrop = DAVIDG_junhop[DAVIDG_junhop["Produto"] == Select_Filtro2]
     DAVIDG_junho_TOTALP = DAVIDG_junhop["Produto"].value_counts().get("PÓS PAGO", 0)
@@ -79,7 +71,7 @@ if arquivo is not None:
 
     junho_acumulado_pós = (
     ANA_junho_TOTALP + AMANDA_junho_TOTALP + ANDERSON_junho_TOTALP +
-    CAROL_junho_TOTALP + DAVIDG_junho_TOTALP + DEBORA_junho_TOTALP + WILLER_junho_TOTALP)
+     DAVIDG_junho_TOTALP + DEBORA_junho_TOTALP + WILLER_junho_TOTALP)
 
 
     
@@ -96,10 +88,6 @@ if arquivo is not None:
     ANDERSON_junho_filtros = ANDERSON_junhos[ANDERSON_junhos["Serviço"] == Select_Filtro3]
     ANDERSON_junho_TOTALS = ANDERSON_junhos["Serviço"].value_counts().get("Seguro", 0)
 
-    CAROL_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="CAROL")
-    CAROL_junho_filtros = CAROL_junhos[CAROL_junhos["Serviço"] == Select_Filtro3]
-    CAROL_junho_TOTALS = CAROL_junhos["Serviço"].value_counts().get("Seguro", 0)
-
     DAVIDG_junhos = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DAVIDG")
     DAVIDG_junho_filtros = DAVIDG_junhos[DAVIDG_junhos["Serviço"] == Select_Filtro3]
     DAVIDG_junho_TOTALS = DAVIDG_junhos["Serviço"].value_counts().get("Seguro", 0)
@@ -114,7 +102,7 @@ if arquivo is not None:
 
     junho_acumulado_seguro = (
     ANA_junho_TOTALS + AMANDA_junho_TOTALS + ANDERSON_junho_TOTALS +
-    CAROL_junho_TOTALS + DAVIDG_junho_TOTALS + DEBORA_junho_TOTALS + WILLER_junho_TOTALS)
+     DAVIDG_junho_TOTALS + DEBORA_junho_TOTALS + WILLER_junho_TOTALS)
     
 
     # JUNHO_APARELHOS
@@ -130,11 +118,6 @@ if arquivo is not None:
     ANDERSON_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANDERSON")
     ANDERSON_junho_filtroa = ANDERSON_junhoa[ANDERSON_junhoa["Serviço"] == Select_Filtro4]
     ANDERSON_junho_TOTALA = ANDERSON_junhos["Serviço"].value_counts().get("Aparelho", 0)
-
-    CAROL_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="CAROL")
-    CAROL_junho_filtroa = CAROL_junhoa[CAROL_junhoa["Serviço"] == Select_Filtro4]
-    CAROL_junho_TOTALA = CAROL_junhos["Serviço"].value_counts().get("Aparelho", 0)
-
 
     DAVIDG_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DAVIDG")
     DAVIDG_junho_filtroa = DAVIDG_junhoa[DAVIDG_junhoa["Serviço"] == Select_Filtro4]
@@ -152,7 +135,7 @@ if arquivo is not None:
 
     junho_acumulado_aparelho = ( ANA_junho_TOTALA + AMANDA_junho_TOTALA + ANDERSON_junho_TOTALA 
 
-+ CAROL_junho_TOTALA + DAVIDG_junho_TOTALA + DEBORA_junho_TOTALA + WILLER_junho_TOTALA )
+ + DAVIDG_junho_TOTALA + DEBORA_junho_TOTALA + WILLER_junho_TOTALA )
 
 
 
@@ -168,10 +151,6 @@ if arquivo is not None:
     ANDERSON_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="ANDERSON")
     ANDERSON_junho_filtroac = ANDERSON_junhoa[ANDERSON_junhoa["Serviço"] == Select_Filtro5]
     ANDERSON_junho_TOTALAC = ANDERSON_junhoa["Serviço"].value_counts().get("Acessórios", 0)
-
-    CAROL_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="CAROL")
-    CAROL_junho_filtroac = CAROL_junhoa[CAROL_junhoa["Serviço"] == Select_Filtro5]
-    CAROL_junho_TOTALAC = CAROL_junhoa["Serviço"].value_counts().get("Acessórios", 0)
 
     DAVIDG_junhoa = pd.read_excel(arquivo, usecols=Select_Coluns2, sheet_name="DAVIDG")
     DAVIDG_junho_filtroac = DAVIDG_junhoa[DAVIDG_junhoa["Serviço"] == Select_Filtro5]
@@ -200,10 +179,6 @@ if arquivo is not None:
     ANDERSON_junho_filtrof = ANDERSON_junhof[ANDERSON_junhof["Serviço"] == Select_Filtro6]
     ANDERSON_junho_TOTALf = ANDERSON_junhof["Serviço"].value_counts().get("Fixa", 0)
 
-    CAROL_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="CAROL")
-    CAROL_junho_filtrof = CAROL_junhof[CAROL_junhof["Serviço"] == Select_Filtro6]
-    CAROL_junho_TOTALf = CAROL_junhof["Serviço"].value_counts().get("Fixa", 0)
-
     DAVIDG_junhof = pd.read_excel(arquivo, usecols=Select_Coluns3, sheet_name="DAVIDG")
     DAVIDG_junho_filtrof = DAVIDG_junhof[DAVIDG_junhof["Serviço"] == Select_Filtro6]
     DAVIDG_junho_TOTALf = DAVIDG_junhof["Serviço"].value_counts().get("Fixa", 0)
@@ -219,7 +194,7 @@ if arquivo is not None:
     #total
     junho_acumulado_fibra = ( ANA_junho_TOTALf + AMANDA_junho_TOTALf + ANDERSON_junho_TOTALf
 
-+ CAROL_junho_TOTALf + DAVIDG_junho_TOTALf + DEBORA_junho_TOTALf + WILLER_junho_TOTALf )
+ + DAVIDG_junho_TOTALf + DEBORA_junho_TOTALf + WILLER_junho_TOTALf )
 
 #junho_grafico_controle
 
@@ -228,7 +203,6 @@ df_junho = pd.DataFrame ([{
 'ANA' : ANA_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
 'ANDERSON' : ANDERSON_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
 'AMANDA' :  AMANDA_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
-'CAROL' : CAROL_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
 'DAVIDG' : DAVIDG_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
 'DEBORA' : DEBORA_junho_filtro ["Produto"].isin(["CONTROLE"]).sum(),
 'WILLER' : WILLER_junho_filtro["Produto"].isin(["CONTROLE"]).sum(),
@@ -245,7 +219,6 @@ df_junho2 = pd.DataFrame ([{
 'ANA' : ANA_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
 'ANDERSON' : ANDERSON_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
 'AMANDA'  : AMANDA_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
-'CAROL' : CAROL_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
 'DAVIDG' : DAVIDG_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
 'DEBORA' : DEBORA_junho_filtrop ["Produto"].isin(["PÓS PAGO"]).sum(),
 'WILLER' : WILLER_junho_filtrop["Produto"].isin(["PÓS PAGO"]).sum(),
@@ -262,7 +235,6 @@ df_junho3 = pd.DataFrame ([{
 'ANA' : ANA_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
 'ANDERSON' : ANDERSON_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
 'AMANDA' : AMANDA_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
-'CAROL' : CAROL_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
 'DAVIDG' : DAVIDG_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
 'DEBORA' : DEBORA_junho_filtros ["Serviço"].isin(["Seguro"]).sum(),
 'WILLER' : WILLER_junho_filtros["Serviço"].isin(["Seguro"]).sum(),
@@ -353,7 +325,6 @@ df_junho4 = pd.DataFrame ([{
 'ANA' : ANA_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
 'ANDERSON' : ANDERSON_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
 'AMANDA' : AMANDA_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
-'CAROL' : CAROL_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
 'DAVIDG' : DAVIDG_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
 'DEBORA' : DEBORA_junho_filtrof ["Serviço"].isin(["Fixa"]).sum(),
 'WILLER' : WILLER_junho_filtrof["Serviço"].isin(["Fixa"]).sum(),
@@ -365,11 +336,11 @@ df_melt_junho_fibra = df_junho4.melt(value_name = "valor" , var_name = "consulto
 
 
 
-if windows == "Inicio" and box_mês == "Junho" :
+if windows == "Inicio"  :
 
     st.subheader("Dashboard voltado para análise de qualidade")
     st.image(imagem)
-    st.subheader("Gráfico relacionado ao mês de Junho")
+    st.subheader("Gráfico relacionado ao mês")
 
     st.subheader("Controle: ")
     st.bar_chart(df_melt_junho_CONTROLE.set_index('consultor'))
@@ -384,7 +355,7 @@ if windows == "Inicio" and box_mês == "Junho" :
     st.bar_chart(df_melt_junho_fibra.set_index('consultor'))
 
 
-elif windows == "Tabela(Controle)" and box_mês == "Junho":
+elif windows == "Tabela(Controle)" :
     
     st.header("Tabela (Controle)")
     st.write("ANA: ",ANA_junho_TOTALC)
@@ -397,10 +368,6 @@ elif windows == "Tabela(Controle)" and box_mês == "Junho":
 
     st.write("AMANDA: ",AMANDA_junho_TOTALC)
     st.dataframe(AMANDA_junho_filtro)
-
-
-    st.write("CAROL: ",CAROL_junho_TOTALC)
-    st.dataframe(CAROL_junho_filtro)
 
 
     st.write("DEBORA: ",DEBORA_junho_TOTALC)
@@ -417,12 +384,9 @@ elif windows == "Tabela(Controle)" and box_mês == "Junho":
 
     st.write("Total controle: ",junho_acumulado_controle)
     
-
     
 
-    
-
-elif windows == "Tabela(Pós)" and box_mês == "Junho":
+elif windows == "Tabela(Pós)" :
 
     st.header("Tabela (Pós)")
     
@@ -434,9 +398,6 @@ elif windows == "Tabela(Pós)" and box_mês == "Junho":
 
     st.write("AMANDA: ", AMANDA_junho_TOTALP)
     st.dataframe(AMANDA_junho_filtrop)
-
-    st.write("CAROL:" , CAROL_junho_TOTALP)
-    st.dataframe(CAROL_junho_filtrop)
 
     st.write("DEBORA: ", DEBORA_junho_TOTALP)
     st.dataframe(DEBORA_junho_filtrop)
@@ -451,7 +412,7 @@ elif windows == "Tabela(Pós)" and box_mês == "Junho":
     st.write("Total pós: ",junho_acumulado_pós)
 
 
-elif windows == "Tabela(Seguro)" and box_mês == "Junho":
+elif windows == "Tabela(Seguro)" :
 
     st.header("Tabela (Seguro)")
     
@@ -463,9 +424,6 @@ elif windows == "Tabela(Seguro)" and box_mês == "Junho":
 
     st.write("AMANDA: ", AMANDA_junho_TOTALS)
     st.dataframe(AMANDA_junho_filtros)
-
-    st.write("CAROL: ", CAROL_junho_TOTALS)
-    st.dataframe(CAROL_junho_filtros)
 
     st.write("DAVIDG: ", DAVIDG_junho_TOTALS)
     st.dataframe(DAVIDG_junho_filtros)
@@ -479,7 +437,7 @@ elif windows == "Tabela(Seguro)" and box_mês == "Junho":
     st.write("Total seguro: ",junho_acumulado_seguro)
 
 
-elif windows == "Tabela(Fibra)" and box_mês == "Junho":
+elif windows == "Tabela(Fibra)" :
 
     st.header("Tabela (Fibra)")
     
@@ -491,9 +449,6 @@ elif windows == "Tabela(Fibra)" and box_mês == "Junho":
 
     st.write("AMANDA: ", AMANDA_junho_TOTALf)
     st.dataframe(AMANDA_junho_filtrof)
-
-    st.write("CAROL: ", CAROL_junho_TOTALf)
-    st.dataframe(CAROL_junho_filtrof)
 
     st.write("DAVIDG: ", DAVIDG_junho_TOTALf)
     st.dataframe(DAVIDG_junho_filtrof)
@@ -509,7 +464,7 @@ elif windows == "Tabela(Fibra)" and box_mês == "Junho":
 
 
 
-elif windows == "Tabela(Aparelho/Acessórios)" and box_mês == "Junho":
+elif windows == "Tabela(Aparelho/Acessórios)" :
 
     st.header("Tabela (Aparelho/Acessórios)")
 
@@ -528,11 +483,7 @@ elif windows == "Tabela(Aparelho/Acessórios)" and box_mês == "Junho":
     st.write("Acessórios:")
     st.write(AMANDA_junho_filtroac)
 
-    st.write("CAROL  APARELHOS", CAROL_junho_TOTALA)
-    st.dataframe(CAROL_junho_filtroa)
-    st.write("Acessórios:")
-    st.write(CAROL_junho_filtroac)
-
+   
     st.write("DAVIDG  APARELHOS", DAVIDG_junho_TOTALA)
     st.dataframe(DAVIDG_junho_filtroa)
     st.write("Acessórios:")
@@ -550,7 +501,7 @@ elif windows == "Tabela(Aparelho/Acessórios)" and box_mês == "Junho":
 
     st.write("Total Aparelho: ",junho_acumulado_aparelho)
     
-elif windows == ("Gráfico(Aparelho/Acessórios)") and box_mês == "Junho":
+elif windows == ("Gráfico(Aparelho/Acessórios)") :
 
     st.subheader("Dashboard voltado para análise de qualidade")
     st.image(imagem)
@@ -570,12 +521,6 @@ elif windows == ("Gráfico(Aparelho/Acessórios)") and box_mês == "Junho":
     st.subheader("WILLER: ")
     st.bar_chart(df_melt_junho_APARELHO_WILLER.set_index('consultor'))
     
-
-
-
-
-
-
 
 
 elif windows == "Sobre":
