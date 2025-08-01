@@ -9,8 +9,6 @@ imagem = imagem = Image.open('imagem/estoque.png')
 
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Gráfico(Aparelho/Acessórios)","Tabela(Controle)", "Tabela(Pós)" ,"Tabela(Seguro)","Tabela(Fibra)","Tabela(Aparelho/Acessórios)","Sobre"])
 
-
-
 arquivo = st.file_uploader("Carregue a Planilha Modelo_Vendedores_P2",type="xlsx")
 
 if arquivo is not None:
@@ -278,15 +276,6 @@ df_junho_AMANDAAP = pd.DataFrame ([{
 df_melt_junho_APARELHO_AMANDA = df_junho_AMANDAAP.melt(value_name = "valor" , var_name = "consultor")
 
 
-df_junho_CAROLAP = pd.DataFrame ([{
-
-"AP" : ANA_junho_TOTALA , 
-"AC" : ANA_junho_TOTALAC
-
-}])
-
-df_melt_junho_APARELHO_CAROL = df_junho_CAROLAP.melt(value_name = "valor" , var_name = "consultor")
-
 
 df_junho_DEBORAAP = pd.DataFrame ([{
 
@@ -493,7 +482,6 @@ elif windows == "Tabela(Aparelho/Acessórios)" :
     st.dataframe(DEBORA_junho_filtroa)
     st.write("Acessórios:")
     st.write(DEBORA_junho_filtroac)
-
     st.write("WILLER  APARELHOS", WILLER_junho_TOTALA)
     st.dataframe(WILLER_junho_filtroa)
     st.write("Acessórios:")
@@ -512,8 +500,6 @@ elif windows == ("Gráfico(Aparelho/Acessórios)") :
     st.bar_chart(df_melt_junho_APARELHO_ANDERSON.set_index('consultor'))
     st.subheader("AMANDA: ")
     st.bar_chart(df_melt_junho_APARELHO_AMANDA.set_index('consultor'))
-    st.subheader("CAROL: ")
-    st.bar_chart(df_melt_junho_APARELHO_CAROL.set_index('consultor'))
     st.subheader("DEBORA: ")
     st.bar_chart(df_melt_junho_APARELHO_DEBORA.set_index('consultor'))
     st.subheader("DAVIDG: ")
