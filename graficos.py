@@ -1,4 +1,12 @@
-from app import *
+from app import consultor1_controle , consultor2_controle , consultor3_controle , consultor4_controle , consultor5_controle , consultor6_controle , consultor7_controle , consultor8_controle
+from app import consultor1_pós , consultor2_pós  , consultor3_pós  , consultor4_pós  , consultor5_pós  , consultor6_pós  , consultor7_pós  , consultor8_pós 
+from app import consultor1_fixa , consultor2_fixa  , consultor3_fixa  , consultor4_fixa  , consultor5_fixa  , consultor6_fixa  , consultor7_fixa  , consultor8_fixa 
+from app import consultor1_sva , consultor2_sva   , consultor3_sva   , consultor4_sva   , consultor5_sva   , consultor6_sva   , consultor7_sva   , consultor8_sva  
+from app import consultor1_seguro , consultor2_seguro   , consultor3_seguro    , consultor4_seguro    , consultor5_seguro    , consultor6_seguro   , consultor7_seguro    , consultor8_seguro   
+from app import consultor1_acessorio , consultor2_acessorio  , consultor3_acessorio    , consultor4_acessorio    , consultor5_acessorio    , consultor6_acessorio   , consultor7_acessorio    , consultor8_acessorio   
+from app import consultor1_aparelho , consultor2_aparelho   , consultor3_aparelho     , consultor4_aparelho     , consultor5_aparelho     , consultor6_aparelho    , consultor7_aparelho     , consultor8_aparelho    
+
+
 import pandas as pd
 
 #CONTROLE
