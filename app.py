@@ -3,6 +3,9 @@ import streamlit as st
 from PIL import Image
 
 
+imagem = imagem = Image.open('imagem/estoque.png')
+windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
+
 coletor = st.file_uploader("Carregue a planilha do formato solicitado: ", type=["xlsx","ods"])
 
 if coletor is not None :
@@ -293,15 +296,12 @@ if coletor is not None :
     st.subheader("ACESSÓRIO")
     st.bar_chart(grafico_acessorio_melt.set_index("consultor"))
 
-
-
-
 else:
         st.warning("Carregue a planilha")
 
-imagem = imagem = Image.open('imagem/estoque.png')
-windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
 
-st.header("Dashboard voltado para análise de qualidade")
-st.image(imagem)
+
+
+
+
 
