@@ -6,9 +6,6 @@ from PIL import Image
 imagem = imagem = Image.open('imagem/estoque.png')
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
 
-coletor = st.file_uploader("Carregue a planilha do formato solicitado: ", type=["xlsx","ods"])
-
-
 st.header("Dashboard voltado para análise de qualidade")
 st.image(imagem)
 
