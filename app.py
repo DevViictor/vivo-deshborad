@@ -7,7 +7,7 @@ from graficos import grafico_controle_melt , grafico_pós_melt , grafico_fixa_me
 from PIL import Image
 
 imagem = imagem = Image.open('imagem/estoque.png')
-windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio","Sobre"])
+windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
 
 st.header("Dashboard voltado para análise de qualidade")
 st.image(imagem)

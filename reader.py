@@ -29,7 +29,7 @@ if coletor is not None :
         total_seguro = (leitor5["Serviço"] == contar).sum()
         return total_seguro
 
-    def ler_planilha_aparelho(coletor,aba,contar="Aparelhos"):
+    def ler_planilha_aparelho(coletor,aba,contar="Aparelho"):
         leitor6 = pd.read_excel(coletor, sheet_name=aba)
         total_aparelho = (leitor6["Serviço"] == contar).sum()
         return total_aparelho
