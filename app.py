@@ -270,21 +270,34 @@ if coletor is not None :
 
     grafico_acessorio_melt = grafico_acessorio.melt(value_name = "valor" , var_name = "consultor")
 
+    st.subheader("Gráfico relacionado ao mês")
+
+    st.subheader("CONTROLE")
+    st.bar_chart(grafico_controle_melt.set_index('consultor'))
+
+    st.subheader("PÓS")
+    st.bar_chart(grafico_pós_melt.set_index('consultor'))
+
+    st.subheader("FIXA")
+    st.bar_chart(grafico_fixa_melt.set_index('consultor'))
+
+    st.subheader("SVA")
+    st.bar_chart(grafico_sva_melt.set_index("consultor"))
+
+    st.subheader("SEGURO")
+    st.bar_chart(grafico_seguro_melt.set_index("consultor"))
+
+    st.subheader("APARELHO")
+    st.bar_chart(grafico_aparelho_melt.set_index("consultor"))
+
+    st.subheader("ACESSÓRIO")
+    st.bar_chart(grafico_acessorio_melt.set_index("consultor"))
+
+
+
+
 else:
         st.warning("Carregue a planilha")
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 imagem = imagem = Image.open('imagem/estoque.png')
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
@@ -292,25 +305,3 @@ windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
 st.header("Dashboard voltado para análise de qualidade")
 st.image(imagem)
 
-st.subheader("Gráfico relacionado ao mês")
-
-st.subheader("CONTROLE")
-st.bar_chart(grafico_controle_melt.set_index('consultor'))
-
-st.subheader("PÓS")
-st.bar_chart(grafico_pós_melt.set_index('consultor'))
-
-st.subheader("FIXA")
-st.bar_chart(grafico_fixa_melt.set_index('consultor'))
-
-st.subheader("SVA")
-st.bar_chart(grafico_sva_melt.set_index("consultor"))
-
-st.subheader("SEGURO")
-st.bar_chart(grafico_seguro_melt.set_index("consultor"))
-
-st.subheader("APARELHO")
-st.bar_chart(grafico_aparelho_melt.set_index("consultor"))
-
-st.subheader("ACESSÓRIO")
-st.bar_chart(grafico_acessorio_melt.set_index("consultor"))
