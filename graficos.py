@@ -1,4 +1,4 @@
-from reader import *
+from app import *
 import pandas as pd
 
 #CONTROLE
