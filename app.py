@@ -7,7 +7,7 @@ coletor = st.file_uploader("Carregue a planilha", type=["xlsx","ods"])
 imagem = imagem = Image.open('imagem/estoque.png')
 windows = st.sidebar.radio("GUIA DE NAVEGAÇÃO", ["Inicio"])
 
-st.header("Dashboard voltado para análise de qualidade")
+st.header("Análise de Qualidade")
 st.image(imagem)
 
 if coletor is not None :
@@ -299,7 +299,7 @@ if coletor is not None :
     st.bar_chart(grafico_acessorio_melt.set_index("consultor"))
 
 else:
-        st.warning("A planiha tem que ser no modelo solicitado")
+        st.warning("A planiha obrigatoriamente tem que ser no modelo enviado")
 
 
 
